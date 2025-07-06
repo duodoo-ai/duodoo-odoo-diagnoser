@@ -21,14 +21,7 @@
 
     'depends': ['base', 'web', 'crm'],
     'data': [
-        # 'data/deepseek_data.xml',
-        # 'data/deepseek_cron.xml',
-        # 'security/ir.model.access.csv',
-        # 'views/hr_department_views.xml',
-        # 'views/deepseek_interface_views.xml',
-        # 'views/deepseek_user_balance_views.xml',
         'views/crm_lead_views.xml',
-        # 'views/deepseek_menu.xml',
     ],
     'installable': True,
     'application': True,
