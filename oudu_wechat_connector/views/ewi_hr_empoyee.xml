@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="ewi_inherit_view_employee_tree_2025" model="ir.ui.view">
+        <field name="name">wechat.hr.employee.tree</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+            <field name='active' position='after'>
+                <field name="ewc_enable" optional="show"/>
+                <field name="ewc_employee_order" optional="hide" groups="base.group_erp_manager"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="ewi_inherit_view_employee_form_2025" model="ir.ui.view">
+        <field name="name">wechat.hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Wechat Base Info" groups="base.group_erp_manager">
+                    <group>
+                        <group name="grp_base_employee">
+                            <field name="ewc_enable"/>
+                            <field name="ewc_employee_order" groups="base.group_erp_manager"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_ewi_inherit_view_employee_2025" model="ir.actions.act_window">
+        <field name="name">wechat.hr.employee.action</field>
+        <field name="res_model">hr.employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids"
+           eval="[(5, 0, 0),
+                  (0, 0, {'view_mode': 'list', 'view_id': ref('ewi_inherit_view_employee_tree_2025')}),
+                  (0, 0, {'view_mode': 'form', 'view_id': ref('ewi_inherit_view_employee_form_2025')}),
+                  ]"/>
+    </record>
+</odoo>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 电气安全监测列表视图 -->
+        <record id="view_electrical_safety_list" model="ir.ui.view">
+            <field name="name">electrical.safety.list</field>
+            <field name="model">ecems.electrical_safety</field>
+            <field name="arch" type="xml">
+                <list string="电气安全监测">
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="collection_time"/>
+                    <field name="temperature_a"/>
+                    <field name="temperature_b"/>
+                    <field name="temperature_c"/>
+                    <field name="temperature_n"/>
+                    <field name="max_temperature"/>
+                     <field name="temperature_threshold"/>
+                    <field name="is_overheat"/>
+                    <button name="action_view_history" type="object"
+                                string="历史数据" class="oe_highlight"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- 电气安全监测表单视图 -->
+        <record id="view_electrical_safety_form" model="ir.ui.view">
+            <field name="name">electrical.safety.form</field>
+            <field name="model">ecems.electrical_safety</field>
+            <field name="arch" type="xml">
+                <form string="电气安全监测">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="collection_time"/>
+                                <field name="project_id"/>
+                            </group>
+                            <group>
+                                <field name="max_temperature"/>
+                                <field name="is_overheat"/>
+                                <field name="temperature_threshold"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="temperature_a"/>
+                                <field name="temperature_b"/>
+                                <field name="temperature_c"/>
+                                <field name="temperature_n"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="历史温度记录">
+                                <field name="history_ids" widget="one2many">
+                                    <list string="历史温度记录">
+                                        <field name="collection_time"/>
+                                        <field name="temperature_a"/>
+                                        <field name="temperature_b"/>
+                                        <field name="temperature_c"/>
+                                        <field name="temperature_n"/>
+                                        <field name="max_temperature"/>
+                                        <field name="temperature_threshold"/>
+                                        <field name="is_overheat"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ecems_electrical_safety_view_search" model="ir.ui.view">
+            <field name="name">ecems.electrical_safety.search</field>
+            <field name="model">ecems.electrical_safety</field>
+            <field name="arch" type="xml">
+                <search string="电气安全监测">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_ecems_electrical_safety" model="ir.actions.act_window">
+            <field name="name">电气安全监测</field>
+            <field name="res_model">ecems.electrical_safety</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="ecems_electrical_safety_view_search"/>
+        </record>
+
+        <!-- 历史温度记录列表视图 -->
+        <record id="view_electrical_safety_history_list" model="ir.ui.view">
+            <field name="name">electrical.safety.history.list</field>
+            <field name="model">ecems.electrical_safety.history</field>
+            <field name="arch" type="xml">
+                <list string="历史温度记录">
+                    <field name="circuit_id"/>
+                    <field name="collection_time"/>
+                    <field name="temperature_a"/>
+                    <field name="temperature_b"/>
+                    <field name="temperature_c"/>
+                    <field name="temperature_n"/>
+                    <field name="max_temperature"/>
+                    <field name="is_overheat"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- 历史温度记录表单视图 -->
+        <record id="view_electrical_safety_history_form" model="ir.ui.view">
+            <field name="name">electrical.safety.history.form</field>
+            <field name="model">ecems.electrical_safety.history</field>
+            <field name="arch" type="xml">
+                <form string="历史温度记录">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="project_id"/>
+                                <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="collection_time"/>
+                            </group>
+                            <group>
+                                <field name="temperature_a"/>
+                                <field name="temperature_b"/>
+                                <field name="temperature_c"/>
+                                <field name="temperature_n"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="max_temperature"/>
+                            <field name="is_overheat"/>
+                            <field name="temperature_threshold"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_ecems_electrical_safety_history" model="ir.actions.act_window">
+            <field name="name">历史温度记录</field>
+            <field name="res_model">ecems.electrical_safety.history</field>
+            <field name="view_mode">list,form</field>
+        </record>
+    </data>
+</odoo>

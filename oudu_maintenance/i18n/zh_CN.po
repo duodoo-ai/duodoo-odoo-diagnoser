@@ -1,0 +1,1436 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* oudu_maintenance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-05 07:59+0000\n"
+"PO-Revision-Date: 2025-07-05 07:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,print_report_name:oudu_maintenance.print_qr_code
+msgid "'QR_Report_' + (object.display_name or '') + '.pdf'"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Equipment Information</strong>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Property</strong>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>QR Code</strong>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Value</strong>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_needaction
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_needaction
+msgid "Action Needed"
+msgstr "需要采取行动"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_category__active
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__active
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_status_history__status__active
+msgid "Active"
+msgstr "活跃"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_ids
+msgid "Activities"
+msgstr "活动"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "活动异常装饰"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_state
+msgid "Activity State"
+msgstr "活动状态"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "活动类型图标"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.maintenance_menu_config_activity_type_meu
+msgid "Activity Types"
+msgstr "活动类型"
+
+#. module: oudu_maintenance
+#: model_terms:ir.actions.act_window,help:oudu_maintenance.open_hr_equipment_action_custom
+msgid "Add a new equipment"
+msgstr "增加一台新的设备"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__notes
+msgid "Additional notes about the inspection item."
+msgstr "关于检查项的额外备注。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__archive
+msgid "Archive"
+msgstr "存档"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__assigned_to
+msgid "Assigned To"
+msgstr "分配给"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__equipment_barcode_id
+msgid "Associated equipment QR code record"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_attachment_count
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_attachment_count
+msgid "Attachment Count"
+msgstr "附件数量"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__barcode
+msgid "Barcode"
+msgstr "条形码"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_19
+msgid "CC-Link"
+msgstr "CC-Link（一种工业现场总线）"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.inspection_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_work_order__work_order_status__cancelled
+msgid "Cancelled"
+msgstr "已取消"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__category_id
+msgid "Category"
+msgstr "类别"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__change_date
+msgid "Change Date"
+msgstr "变更日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__close_date
+msgid "Close Date"
+msgstr "关闭日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__color
+msgid "Color Index"
+msgstr "颜色索引"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_work_order__work_order_status__completed
+msgid "Completed"
+msgstr "已完成"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.equipment_computer01
+msgid "Computers"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_equipment_configuration_meu
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_worker_configuration_meu
+msgid "Configuration"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__control
+msgid "Control"
+msgstr "控制"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__create_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__create_uid
+msgid "Created by"
+msgstr "创建者"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__owner_user_id
+msgid "Created by User"
+msgstr "由用户创建"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__create_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__create_date
+msgid "Created on"
+msgstr "创建于"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment__status
+msgid "Current status of the equipment."
+msgstr "设备的当前状态。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__request_date
+msgid "Date requested for the maintenance to happen"
+msgstr "请求进行维护的日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__schedule_date
+msgid ""
+"Date the maintenance team plans the maintenance.  It should not differ much "
+"from the Request Date. "
+msgstr "维护团队计划进行维护的日期。 该日期应与请求日期相差不大。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__close_date
+msgid "Date the maintenance was finished. "
+msgstr "维护完成的日期。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__description
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__description
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__description
+msgid "Description"
+msgstr "描述"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__description
+msgid "Description of the inspection item."
+msgstr "检查项的描述。"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.maintenance_equipment_inspection_form_view
+msgid "Detail Information"
+msgstr "详细说明"
+
+#. module: oudu_maintenance
+#: model:ir.actions.client,name:oudu_maintenance.action_scan_barcode
+msgid "Device scan code"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__display_name
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__display_name
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__display_name
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__display_name
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__display_name
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_work_order__work_order_status__draft
+msgid "Draft"
+msgstr "草稿"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__duration
+msgid "Duration"
+msgstr "持续时间"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__duration
+msgid "Duration in hours."
+msgstr "持续时间（小时）。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__electronic
+msgid "Electronic"
+msgstr "电子设备"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__email_cc
+msgid "Email cc"
+msgstr "抄送邮箱"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__end_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__repeat_until
+msgid "End Date"
+msgstr "结束日期"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.inspection_wizard_form
+msgid "Enter inspection notes..."
+msgstr "输入巡检备注..."
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.open_hr_equipment_action_custom
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__equipment_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__equipment_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__equipment_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__equipment_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__equipment_id
+#: model:ir.ui.menu,name:oudu_maintenance.menu_equipment_form_meu
+msgid "Equipment"
+msgstr "设备管理"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.maintenance_equipment_barcode_action
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment_barcode
+#: model:ir.ui.menu,name:oudu_maintenance.maintenance_equipment_barcode_menu
+msgid "Equipment Barcode"
+msgstr "设备条形码"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_cat
+msgid "Equipment Categories"
+msgstr "设备类别"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__category_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__category_id
+msgid "Equipment Category"
+msgstr "设备类别"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Equipment Category:"
+msgstr "设备类别"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_start_inspection
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.inspection_wizard_form
+msgid "Equipment Inspection"
+msgstr "设备巡检"
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment_inspection_item
+msgid "Equipment Inspection Item"
+msgstr "设备巡检"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_inspection
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment_inspection
+msgid "Equipment Inspection Record"
+msgstr "设备巡检项"
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_inspection_wizard
+msgid "Equipment Inspection Wizard"
+msgstr "设备巡检向导"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_root
+msgid "Equipment Management"
+msgstr "设备管理"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Equipment Name:"
+msgstr "设备名"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.maintenance_equipment_status_history_action
+#: model:ir.ui.menu,name:oudu_maintenance.maintenance_equipment_status_history_menu
+msgid "Equipment Status History"
+msgstr "设备状态历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_category__technical_type
+msgid "Equipment Technical Category"
+msgstr "设备技术类别"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__equipment_id
+msgid "Equipment being inspected"
+msgstr "待检查的设备。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__event_date
+msgid "Event Date"
+msgstr "事件日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__event_type
+msgid "Event Type"
+msgstr "事件类型"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_inspection__result__fail
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_inspection_item__result__fail
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_inspection_wizard__inspection_result__fail
+msgid "Fail"
+msgstr "失败"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_follower_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_follower_ids
+msgid "Followers"
+msgstr "关注者"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_partner_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "关注者（合作伙伴）"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Font awesome 图标，例如 fa-tasks"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.maintenance_equipment_barcode_form_view
+msgid "Generate QR Code"
+msgstr "生成二维码"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__instruction_google_slide
+msgid "Google Slide"
+msgstr "谷歌幻灯片"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__has_message
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__has_message
+msgid "Has Message"
+msgstr "有消息"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.maintenance_work_order_form_view
+msgid "History"
+msgstr "历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__id
+msgid "ID"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_exception_icon
+msgid "Icon"
+msgstr "图标"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "用于指示异常活动的图标。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__message_needaction
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "如果勾选，新消息需要您的关注。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__message_has_error
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__message_has_sms_error
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__message_has_error
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "如果勾选，部分消息存在发送错误。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_work_order__work_order_status__in_progress
+msgid "In Progress"
+msgstr "进行中"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__inactive
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_status_history__status__inactive
+msgid "Inactive"
+msgstr "非活跃"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__inspection_id
+msgid "Inspection"
+msgstr "检查"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__inspection_date
+msgid "Inspection Date"
+msgstr "巡检日期"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_equipment_inspection_history
+msgid "Inspection History Record"
+msgstr "巡检历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__notes
+msgid "Inspection remarks"
+msgstr "关于检查的额外备注。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__result
+msgid "Inspection result: Pass or Fail"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__inspection_ids
+msgid "Inspections"
+msgstr "巡检"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__inspector_id
+msgid "Inspector"
+msgstr "巡检人"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__instruction_type
+msgid "Instruction"
+msgstr "说明"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_is_follower
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_is_follower
+msgid "Is Follower"
+msgstr "是否为关注者"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__name
+msgid "Item Name"
+msgstr "项目名称"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__kanban_state
+msgid "Kanban State"
+msgstr "看板状态"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__write_uid
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__write_uid
+msgid "Last Updated by"
+msgstr "最后更新者"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__write_date
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__write_date
+msgid "Last Updated on"
+msgstr "最后更新于"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__location
+msgid "Location"
+msgstr "位置"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Location:"
+msgstr "位置"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_reports_losses_sub
+msgid "Losses Analysis"
+msgstr "损耗分析"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_17
+msgid "MODBUS"
+msgstr "MODBUS（一种串行通信协议）"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_request_calendar
+msgid "Maintenance Calendar"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "设备保养"
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment_category
+msgid "Maintenance Equipment Category"
+msgstr "维护设备类别"
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_equipment_status_history
+msgid "Maintenance Equipment Status History"
+msgstr "维护设备状态历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_request_form
+msgid "Maintenance Requests"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_stage_configuration
+msgid "Maintenance Stages"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_teams
+msgid "Maintenance Teams"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__maintenance_type
+msgid "Maintenance Type"
+msgstr "维护类型"
+
+#. module: oudu_maintenance
+#: model:ir.model,name:oudu_maintenance.model_maintenance_work_order
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintain_root
+msgid "Maintenance Work Order"
+msgstr "工单管理"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.maintenance_work_order_history_action
+#: model:ir.model,name:oudu_maintenance.model_maintenance_work_order_history
+#: model:ir.ui.menu,name:oudu_maintenance.maintenance_work_order_history_menu
+msgid "Maintenance Work Order History"
+msgstr "维护工单历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.maintenance_work_order_action
+#: model:ir.ui.menu,name:oudu_maintenance.maintenance_work_order_menu
+msgid "Maintenance Work Orders"
+msgstr "维护工单"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_has_error
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_has_error
+msgid "Message Delivery error"
+msgstr "消息发送错误"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_ids
+msgid "Messages"
+msgstr "消息"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__model
+msgid "Model"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Model:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__motor
+msgid "Motor"
+msgstr "电机"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "我的活动截止日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__name
+msgid "Name of the inspection item."
+msgstr "检查项的名称。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "下一个活动截止日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_summary
+msgid "Next Activity Summary"
+msgstr "下一个活动摘要"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_type_id
+msgid "Next Activity Type"
+msgstr "下一个活动类型"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_inspection_item__result__na
+msgid "Not Applicable"
+msgstr "不适用"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__notes
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__notes
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__notes
+msgid "Notes"
+msgstr "备注"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_needaction_counter
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_needaction_counter
+msgid "Number of Actions"
+msgstr "待办事项数量"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_has_error_counter
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_has_error_counter
+msgid "Number of errors"
+msgstr "错误数量"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__message_needaction_counter
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "需要处理的消息数量"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__message_has_error_counter
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "发送错误的消息数量"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__photo
+msgid "On-site inspection photo"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__order_number
+msgid "Order Number"
+msgstr "订单编号"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__other
+msgid "Other"
+msgstr "其他"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_reports_oee_sub
+msgid "Overall Equipment Effectiveness (OEE)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__owner_user_id
+msgid "Owner"
+msgstr "所有者"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Owner:"
+msgstr "所有者"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__instruction_pdf
+msgid "PDF"
+msgstr "PDF文件"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_01
+msgid "PLC"
+msgstr "可编程逻辑控制器（PLC）"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_18
+msgid "PROFINET"
+msgstr "PROFINET（一种工业以太网标准）"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_inspection__result__pass
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_inspection_item__result__pass
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_inspection_wizard__inspection_result__pass
+msgid "Pass"
+msgstr "通过"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__instruction_google_slide
+msgid ""
+"Paste the url of your Google Slide. Make sure the access to the document is "
+"public."
+msgstr "粘贴您的谷歌幻灯片链接。确保文档访问权限为公开。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__inspector_id
+msgid "Personnel performing the inspection"
+msgstr "执行检查的用户。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__photo
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__photo
+msgid "Photo"
+msgstr "图片"
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,name:oudu_maintenance.print_qr_code
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.equipment_barcode_form_print_inherit
+msgid "Print QR Code"
+msgstr "打印二维码"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__printed
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__printed
+msgid "Printed"
+msgstr "已打印"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__priority
+msgid "Priority"
+msgstr "优先级"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__protocol
+msgid "Protocol"
+msgstr "协议"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__qr_code
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__equipment_barcode_id
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__equipment_barcode_id
+msgid "QR Code"
+msgstr "二维码"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__qr_context
+msgid "QR Context"
+msgstr "二维码上下文"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_equipment_inspection
+msgid "Quick Inspection"
+msgstr "快速巡检"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_21
+msgid "RS232"
+msgstr "RS232（一种串行通信接口）"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_23
+msgid "RS422"
+msgstr "RS422（一种串行通信接口）"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_22
+msgid "RS485"
+msgstr "RS485（一种串行通信接口）"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__rating_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__rating_ids
+msgid "Ratings"
+msgstr "评分"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__recurring_maintenance
+msgid "Recurrent"
+msgstr "重复"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__relay
+msgid "Relay"
+msgstr "继电器"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__repeat_interval
+msgid "Repeat Every"
+msgstr "重复间隔"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__repeat_unit
+msgid "Repeat Unit"
+msgstr "重复单位"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_reports_meu
+msgid "Reporting"
+msgstr "报表"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__request_date
+msgid "Request Date"
+msgstr "请求日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__done
+msgid "Request Done"
+msgstr "请求已完成"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__activity_user_id
+msgid "Responsible User"
+msgstr "负责人"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection__result
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_inspection_item__result
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_inspection_wizard__inspection_result
+msgid "Result"
+msgstr "结果"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__result
+msgid "Result of the inspection item."
+msgstr "检查项的结果。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__message_has_sms_error
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "短信发送错误"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment,name:oudu_maintenance.equipment_monitor_01
+msgid "Samsung Monitor 15\""
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.inspection_wizard_form
+msgid "Scan Code Inspection"
+msgstr "扫码巡检"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_inspection_wizard__equipment_barcode_id
+msgid "Scan or select device QR code"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__barcode
+msgid "Scanned barcode value"
+msgstr "扫描的条形码值"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__schedule_date
+msgid "Scheduled Date"
+msgstr "计划日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__scrapped
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_status_history__status__scrapped
+msgid "Scrapped"
+msgstr "已报废"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__sensor
+msgid "Sensor"
+msgstr "传感器"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_category__technical_type__serial
+msgid "Serial"
+msgstr "串口"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__serial_no
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.maintenance_equipment_barcode_list_view
+msgid "Serial Number"
+msgstr "序列号"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Serial Number:"
+msgstr "序列号"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__archive
+msgid ""
+"Set archive to true to hide the maintenance request without deleting it."
+msgstr "将存档设置为 true 可隐藏维护请求而不删除它。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__stage_id
+msgid "Stage"
+msgstr "阶段"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__start_date
+msgid "Start Date"
+msgstr "开始日期"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__status
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_status_history__status
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__work_order_status
+msgid "Status"
+msgstr "状态"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__status_history_ids
+msgid "Status History"
+msgstr "状态历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"基于活动的状态\n"
+"逾期：截止日期已过\n"
+"今日：活动日期为今天\n"
+"计划中：未来活动。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__name
+msgid "Subjects"
+msgstr "主题"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.inspection_wizard_form
+msgid "Submit"
+msgstr "提交"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__maintenance_team_id
+msgid "Team"
+msgstr "团队"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__user_id
+msgid "Technician"
+msgstr "技术人员"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__instruction_text
+msgid "Text"
+msgstr "文本"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment__category_id
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__category_id
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__category_id
+msgid "The category of the equipment."
+msgstr "设备的类别。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__inspection_id
+msgid "The inspection this item belongs to."
+msgstr "此检查项所属的检查。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__inspection_date
+msgid "Time when the inspection occurred"
+msgstr "检查的日期和时间。"
+
+#. module: oudu_maintenance
+#: model_terms:ir.actions.act_window,help:oudu_maintenance.open_hr_equipment_action_custom
+msgid ""
+"Track equipment and link it to an employee or department.\n"
+"                You will be able to manage allocations, issues and maintenance of your equipment."
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "记录上异常活动的类型。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_status_history__status__maintenance
+msgid "Under Maintenance"
+msgstr "维护中"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__repeat_type
+msgid "Until"
+msgstr "直到"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__partner_id
+msgid "Vendor"
+msgstr "供应商"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__partner_ref
+msgid "Vendor Reference"
+msgstr "供应商参考"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Vendor Reference:"
+msgstr "供应商参考"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Vendor:"
+msgstr "供应商"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__website_message_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__website_message_ids
+msgid "Website Messages"
+msgstr "网站消息"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__website_message_ids
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__website_message_ids
+msgid "Website communication history"
+msgstr "网站沟通历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__work_order_id
+msgid "Work Order"
+msgstr "工单"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__history_ids
+msgid "Work Order History"
+msgstr "工单历史记录"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_06
+msgid "三相电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_12
+msgid "中间继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_04
+msgid "伺服电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_08
+msgid "光电传感器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__inspection_ids
+msgid "关联的巡检记录"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_02
+msgid "变频器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_13
+msgid "固态继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_11
+msgid "时间继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__display_name
+msgid "显示名称"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_05
+msgid "步进电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_07
+msgid "温度传感器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_14
+msgid "电容"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_15
+msgid "电感"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_16
+msgid "电阻"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_09
+msgid "编码器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_03
+msgid "驱动器"
+msgstr ""
+
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,print_report_name:oudu_maintenance.print_qr_code
+msgid "'QR_Report_' + (object.display_name or '') + '.pdf'"
+msgstr "'二维码报告_' + (object.display_name or '') + '.pdf'"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Equipment Information</strong>"
+msgstr "<strong>设备信息</strong>"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Property</strong>"
+msgstr "<strong>属性</strong>"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>QR Code</strong>"
+msgstr "<strong>二维码</strong>"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "<strong>Value</strong>"
+msgstr "<strong>数值</strong>"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.equipment_computer01
+msgid "Computers"
+msgstr "计算机设备"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_equipment_configuration_meu
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_worker_configuration_meu
+msgid "Configuration"
+msgstr "配置"
+
+#. module: oudu_maintenance
+#: model:ir.actions.client,name:oudu_maintenance.action_scan_barcode
+msgid "Device scan code"
+msgstr "设备扫码"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection__result
+msgid "Inspection result: Pass or Fail"
+msgstr "检查结果：通过或失败"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_request_calendar
+msgid "Maintenance Calendar"
+msgstr "维护日历"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_request_form
+msgid "Maintenance Requests"
+msgstr "维护请求"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_stage_configuration
+msgid "Maintenance Stages"
+msgstr "维护阶段"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_teams
+msgid "Maintenance Teams"
+msgstr "维护团队"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__model
+msgid "Model"
+msgstr "型号"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Model:"
+msgstr "型号："
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment,name:oudu_maintenance.equipment_monitor_01
+msgid "Samsung Monitor 15\""
+msgstr "三星15寸显示器"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_inspection_wizard__equipment_barcode_id
+msgid "Scan or select device QR code"
+msgstr "扫描或选择设备二维码"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_inspection_item__barcode
+msgid "Scanned barcode value"
+msgstr "扫描的条形码值"
+
+#. module: oudu_maintenance
+#: model_terms:ir.actions.act_window,help:oudu_maintenance.open_hr_equipment_action_custom
+msgid ""
+"Track equipment and link it to an employee or department.\n"
+"                You will be able to manage allocations, issues and maintenance of your equipment."
+msgstr "跟踪设备并与员工或部门关联。\n您将能够管理设备的分配、问题和维护。"
+
+#. module: oudu_maintenance
+#: model:ir.ui.menu,name:oudu_maintenance.menu_m_reports_oee_sub
+msgid "Overall Equipment Effectiveness (OEE)"
+msgstr "设备综合效率(OEE)"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "记录上异常活动的类型。"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__maintenance
+#: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment_status_history__status__maintenance
+msgid "Under Maintenance"
+msgstr "维护中"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__repeat_type
+msgid "Until"
+msgstr "直到"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__partner_id
+msgid "Vendor"
+msgstr "供应商"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__partner_ref
+msgid "Vendor Reference"
+msgstr "供应商参考"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Vendor Reference:"
+msgstr "供应商参考"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_barcode
+msgid "Vendor:"
+msgstr "供应商"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__website_message_ids
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__website_message_ids
+msgid "Website Messages"
+msgstr "网站消息"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__website_message_ids
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_work_order__website_message_ids
+msgid "Website communication history"
+msgstr "网站沟通历史记录"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order_history__work_order_id
+msgid "Work Order"
+msgstr "工单"
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_work_order__history_ids
+msgid "Work Order History"
+msgstr "工单历史记录"
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_06
+msgid "三相电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_12
+msgid "中间继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_04
+msgid "伺服电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_08
+msgid "光电传感器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment_barcode__inspection_ids
+msgid "关联的巡检记录"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_02
+msgid "变频器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_13
+msgid "固态继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_11
+msgid "时间继电器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment_barcode__display_name
+msgid "显示名称"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_05
+msgid "步进电机"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_07
+msgid "温度传感器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_14
+msgid "电容"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_15
+msgid "电感"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_16
+msgid "电阻"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_09
+msgid "编码器"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:maintenance.equipment.category,name:oudu_maintenance.maintenance_equipment_category_03
+msgid "驱动器"
+msgstr ""

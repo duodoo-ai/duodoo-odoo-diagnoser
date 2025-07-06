@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 用电集抄视图 -->
+        <record id="view_collection_list" model="ir.ui.view">
+            <field name="name">ecems.collection.list</field>
+            <field name="model">ecems.collection</field>
+            <field name="arch" type="xml">
+                <list string="用电集抄">
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="record_date"/>
+                    <field name="base_reading"/>
+                    <field name="total_consumption"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_collection_form" model="ir.ui.view">
+            <field name="name">ecems.collection.form</field>
+            <field name="model">ecems.collection</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="record_date"/>
+                            <field name="base_reading"/>
+                            <field name="project_id"/>
+                        </group>
+                        <group string="小时数据">
+                            <field name="hourly_data" widget="hr_timesheet_float_time"/>
+                        </group>
+                        <group string="统计">
+                            <field name="total_consumption" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_collection_search" model="ir.ui.view">
+            <field name="name">ecems.collection.search</field>
+            <field name="model">ecems.collection</field>
+            <field name="arch" type="xml">
+                <search string="用电集抄">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 用电统计视图 -->
+        <record id="view_statistics_list" model="ir.ui.view">
+            <field name="name">ecems.statistics.list</field>
+            <field name="model">ecems.statistics</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="report_type"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="total_reading"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_statistics_pivot" model="ir.ui.view">
+            <field name="name">ecems.statistics.pivot</field>
+            <field name="model">ecems.statistics</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="circuit_id" type="col"/>
+                    <field name="start_date" interval="month" type="row"/>
+                    <field name="total_reading" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record id="view_statistics_search" model="ir.ui.view">
+            <field name="name">ecems.statistics.search</field>
+            <field name="model">ecems.statistics</field>
+            <field name="arch" type="xml">
+                <search string="用电统计">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 分时段用电视图 -->
+        <record id="view_timeslot_list" model="ir.ui.view">
+            <field name="name">ecems.timeslot.list</field>
+            <field name="model">ecems.timeslot</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="record_date"/>
+                    <field name="total_energy"/>
+                    <field name="total_amount"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_timeslot_form" model="ir.ui.view">
+            <field name="name">ecems.timeslot.form</field>
+            <field name="model">ecems.timeslot</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="record_date"/>
+                            <field name="project_id"/>
+                        </group>
+
+                        <notebook>
+                            <page string="尖时段">
+                                <group>
+                                    <field name="peak_energy"/>
+                                    <field name="peak_price"/>
+                                    <field name="peak_amount"/>
+                                </group>
+                            </page>
+
+                            <page string="峰时段">
+                                <group>
+                                    <field name="high_energy"/>
+                                    <field name="high_price"/>
+                                    <field name="high_amount"/>
+                                </group>
+                            </page>
+
+                            <page string="平时段">
+                                <group>
+                                    <field name="normal_energy"/>
+                                    <field name="normal_price"/>
+                                    <field name="normal_amount"/>
+                                </group>
+                            </page>
+
+                            <page string="谷时段">
+                                <group>
+                                    <field name="valley_energy"/>
+                                    <field name="valley_price"/>
+                                    <field name="valley_amount"/>
+                                </group>
+                            </page>
+
+                            <page string="合计">
+                                <group>
+                                    <field name="total_energy"/>
+                                    <field name="total_amount"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_timeslot_search" model="ir.ui.view">
+            <field name="name">ecems.timeslot.search</field>
+            <field name="model">ecems.timeslot</field>
+            <field name="arch" type="xml">
+                <search string="分时段用电">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 线路损耗视图 -->
+        <record id="view_lineloss_list" model="ir.ui.view">
+            <field name="name">ecems.lineloss.list</field>
+            <field name="model">ecems.lineloss</field>
+            <field name="arch" type="xml">
+                <list decoration-danger="diff_percent > 10" decoration-warning="diff_percent > 5">
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="record_date"/>
+                    <field name="current_energy"/>
+                    <field name="child_energy"/>
+                    <field name="energy_diff"/>
+                    <field name="diff_percent" widget="percentage"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_lineloss_form" model="ir.ui.view">
+            <field name="name">ecems.lineloss.form</field>
+            <field name="model">ecems.lineloss</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="record_date"/>
+                            <field name="project_id"/>
+                        </group>
+
+                        <group string="能耗数据">
+                            <field name="current_energy"/>
+                            <field name="child_energy"/>
+                            <field name="energy_diff"/>
+                            <field name="diff_percent" widget="percentage"/>
+                        </group>
+
+                        <field name="child_ids">
+                            <list>
+                                <field name="circuit_id"/>
+                                <field name="current_energy"/>
+                            </list>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_lineloss_search" model="ir.ui.view">
+            <field name="name">ecems.lineloss.search</field>
+            <field name="model">ecems.lineloss</field>
+            <field name="arch" type="xml">
+                <search string="线路损耗">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_collection" model="ir.actions.act_window">
+            <field name="name">用电集抄</field>
+            <field name="res_model">ecems.collection</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_collection_search"/>
+        </record>
+
+        <record id="action_statistics" model="ir.actions.act_window">
+            <field name="name">用电统计</field>
+            <field name="res_model">ecems.statistics</field>
+            <field name="view_mode">list,pivot,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_statistics_search"/>
+        </record>
+
+        <record id="action_timeslot" model="ir.actions.act_window">
+            <field name="name">分时段用电</field>
+            <field name="res_model">ecems.timeslot</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_timeslot_search"/>
+        </record>
+
+        <record id="action_lineloss" model="ir.actions.act_window">
+            <field name="name">线路损耗</field>
+            <field name="res_model">ecems.lineloss</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_lineloss_search"/>
+        </record>
+    </data>
+</odoo>

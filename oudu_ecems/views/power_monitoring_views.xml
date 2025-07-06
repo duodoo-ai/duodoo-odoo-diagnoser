@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 平均功率因数树状视图 -->
+        <record id="view_power_monitor_list" model="ir.ui.view">
+            <field name="name">ecems.power.monitor.list</field>
+            <field name="model">ecems.power_monitor</field>
+            <field name="arch" type="xml">
+                <list decoration-info="avg_power_factor > 0.9"
+                           decoration-danger="avg_power_factor &lt; 0.8" default_order="circuit_id">
+                    <field name="project_id"/>
+                    <field name="circuit_id" optional="show"/>
+                    <field name="monitor_date" optional="show"/>
+                    <field name="forward_active" optional="show"/>
+                    <field name="reverse_active" optional="show"/>
+                    <field name="forward_reactive" optional="show"/>
+                    <field name="reverse_reactive" optional="show"/>
+                    <field name="avg_power_factor" widget="percentage" optional="show"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- 表单视图 -->
+        <record id="view_power_monitor_form" model="ir.ui.view">
+            <field name="name">ecems.power.monitor.form</field>
+            <field name="model">ecems.power_monitor</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="monitor_date"/>
+                            <field name="project_id"/>
+                        </group>
+                        <group>
+                            <group string="有功电度">
+                                <field name="forward_active"/>
+                                <field name="reverse_active"/>
+                            </group>
+
+                            <group string="无功电度">
+                                <field name="forward_reactive"/>
+                                <field name="reverse_reactive"/>
+                            </group>
+                        </group>
+
+                        <group string="计算结果">
+                            <field name="avg_power_factor"
+                                   widget="percentage"
+                                   options="{'precision': 2}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ecems_power_monitor_view_search" model="ir.ui.view">
+            <field name="name">ecems.power_monitor.search</field>
+            <field name="model">ecems.power_monitor</field>
+            <field name="arch" type="xml">
+                <search string="平均功率因数">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_power_monitor" model="ir.actions.act_window">
+            <field name="name">平均功率因数</field>
+            <field name="res_model">ecems.power_monitor</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="ecems_power_monitor_view_search"/>
+        </record>
+    </data>
+</odoo>

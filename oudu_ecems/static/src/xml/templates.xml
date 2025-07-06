@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- 资产扩展模板 -->
+    <template id="asset_backend_extension" name="Assets Backend Extension" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/ecems/static/src/js/echarts_line.js"/>
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"/>
+        </xpath>
+    </template>
+    <!-- 仪表盘内容模板 -->
+    <template id="dashboard_content_template">
+        <div class="dashboard-container">
+            <!-- 仪表盘内容 -->
+        </div>
+    </template>
+    <!-- 图表模板 -->
+    <template id="chart_content_template">
+        <div class="chart-container">
+            <!-- 图表内容 -->
+        </div>
+    </template>
+    <!-- ECharts 折线图组件模板 -->
+    <template id="echarts_line_widget_template" name="Echarts Line Widget Template">
+        <div style="width: 100%; height: 400px;"/>
+    </template>
+</odoo>

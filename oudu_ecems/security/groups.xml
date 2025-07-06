@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 能源管理基础组 -->
+        <record id="group_ecems_user" model="res.groups">
+            <field name="name">能源管理-普通用户</field>
+            <field name="category_id" ref="base.module_category_services"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="group_ecems_manager" model="res.groups">
+            <field name="name">能源管理-系统管理员</field>
+            <field name="category_id" ref="base.module_category_services"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <!-- 子功能组 -->
+        <record id="group_power_monitor" model="res.groups">
+            <field name="name">电力监控管理</field>
+            <field name="category_id" ref="base.module_category_services"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+        <record id="group_energy_analysis" model="res.groups">
+            <field name="name">能耗分析管理</field>
+            <field name="category_id" ref="base.module_category_services"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+    </data>
+</odoo>

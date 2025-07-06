@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_equipment_barcode">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <div class="page" style="padding: 20px; font-family: 'Segoe UI', Arial, sans-serif; background-color: #f8f9fa;">
+                        <t t-foreach="docs" t-as="obj">
+                            <table style="width: 100%; border-collapse: collapse; margin-bottom: 30px; border: 1px solid #dee2e6; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background: white;">
+                                <!-- 主标题行 -->
+                                <tr style="background-color: #007bff; color: white;">
+                                    <th colspan="3" style="padding: 15px; text-align: center; font-size: 18px;">
+                                        <strong>Equipment Information</strong>
+                                    </th>
+                                </tr>
+
+                                <!-- 副标题行 -->
+                                <tr style="background-color: #e9ecef;">
+                                    <th style="padding: 12px 15px; font-size: 14px; width: 25%; border-bottom: 1px solid #dee2e6;">
+                                        <strong>Property</strong>
+                                    </th>
+                                    <th style="padding: 12px 15px; font-size: 14px; width: 40%; border-bottom: 1px solid #dee2e6;">
+                                        <strong>Value</strong>
+                                    </th>
+                                    <th style="width: 35%; border-bottom: 1px solid #dee2e6;" rowspan="9">
+                                        <div style="text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; padding: 15px;">
+                                            <h2 style="margin: 0 0 15px 0; font-size: 16px; color: #007bff;">
+                                                <strong>QR Code</strong>
+                                            </h2>
+                                            <div style="border: 1px solid #dee2e6; border-radius: 6px; padding: 15px; background: white; box-shadow: 0 1px 4px rgba(0,0,0,0.05);">
+                                                <img t-att-src="'data:image/png;base64,' + obj.qr_code"
+                                                     style="width: 180px; height: 180px; display: block; margin: 0 auto;"/>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </tr>
+
+                                <!-- 数据行 -->
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Equipment Name:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.equipment_id.name"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Owner:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.owner_user_id.name"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Equipment Category:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.category_id.name"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Vendor:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.partner_id.name"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Vendor Reference:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.partner_ref"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Location:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.location"/></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #e9ecef;">
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Model:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.model"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px 15px; font-weight: 600; color: #495057;">Serial Number:</td>
+                                    <td style="padding: 12px 15px;"><t t-esc="obj.serial_no"/></td>
+                                </tr>
+                            </table>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

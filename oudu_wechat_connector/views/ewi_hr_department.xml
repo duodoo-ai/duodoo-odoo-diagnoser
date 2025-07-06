@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="wechat_view_department_tree_2025" model="ir.ui.view">
+        <field name="name">Wechat Department</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='color']" position="after">
+                <field name="ewc_dept_order" optional="hide" groups="base.group_erp_manager"/>
+                <field name="id" optional="hide" groups="base.group_erp_manager"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="wechat_view_department_form_2025" model="ir.ui.view">
+        <field name="name">Wechat Department</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <sheet>
+                <xpath expr="//sheet/group" position="after">
+                    <group>
+                        <group string="Wechat Base Info" groups="base.group_erp_manager">
+                            <field name="ewc_dept_order" groups="base.group_erp_manager"/>
+                        </group>
+                    </group>
+                </xpath>
+            </sheet>
+        </field>
+    </record>
+
+    <record id="action_wechat_view_department_2025" model="ir.actions.act_window">
+        <field name="name">Wechat Department</field>
+        <field name="res_model">hr.department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_ids"
+           eval="[(5, 0, 0),
+                  (0, 0, {'view_mode': 'list', 'view_id': ref('wechat_view_department_tree_2025')}),
+                  (0, 0, {'view_mode': 'form', 'view_id': ref('wechat_view_department_form_2025')}),
+                  ]"/>
+    </record>
+</odoo>

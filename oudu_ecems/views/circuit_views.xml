@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 主记录列表视图 -->
+        <record id="view_circuit_list" model="ir.ui.view">
+            <field name="name">circuit.list</field>
+            <field name="model">ecems.circuit</field>
+            <field name="arch" type="xml">
+                <list string="支路能耗模型">
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="record_type"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                    <field name="total_energy" widget="float_factor" options="{'factor': 0.01}"/>
+                    <field name="total_cost" widget="monetary"/>
+                     <field name="record_time"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- 表单视图 -->
+        <record id="view_circuit_form" model="ir.ui.view">
+            <field name="name">circuit.form</field>
+            <field name="model">ecems.circuit</field>
+            <field name="arch" type="xml">
+                <form string="支路能耗模型">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="circuit_id" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="record_type"/>
+                                <field name="start_time"/>
+                                <field name="end_time"/>
+                                 <field name="record_time"/>
+                                <field name="project_id"/>
+                            </group>
+                            <group>
+                                <field name="total_energy" widget="float_factor" options="{'factor': 0.01}"/>
+                                <field name="total_cost" widget="monetary"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="详细数据">
+                                <field name="hourly_data_ids" widget="one2many">
+                                    <list string="每小时数据">
+                                        <field name="hour"/>
+                                        <field name="energy_data"/>
+                                    </list>
+                                    <form string="每小时数据">
+                                        <group>
+                                            <field name="hour"/>
+                                            <field name="energy_data"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_circuit_search" model="ir.ui.view">
+            <field name="name">ecems.circuit.search</field>
+            <field name="model">ecems.circuit</field>
+            <field name="arch" type="xml">
+                <search string="支路能耗模型">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_ecems_circuit" model="ir.actions.act_window">
+            <field name="name">支路能耗模型</field>
+            <field name="res_model">ecems.circuit</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_circuit_search"/>
+        </record>
+    </data>
+</odoo>

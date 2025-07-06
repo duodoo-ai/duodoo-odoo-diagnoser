@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- 能耗综合看板（正确实现方式） -->
+        <record id="view_energy_dashboard" model="ir.ui.view">
+            <field name="name">Energy Dashboard</field>
+            <field name="model">ecems.energy_analysis</field>
+            <field name="arch" type="xml">
+                <!-- 使用看板视图构建仪表盘 -->
+                <kanban class="o_kanban_dashboard">
+                    <field name="id"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_click">
+                                <!-- 统计卡片布局 -->
+                                <div class="row mt16">
+                                    <div class="col-4">
+                                        <div class="card o_kanban_primary_left">
+                                            <div class="card-header">
+                                                <h3>电统计</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="o_kanban_stats">
+                                                    <field name="current_month_usage"
+                                                           widget="float_factor"
+                                                           options="{'factor': 0.01}"/>
+                                                    <field name="last_month_usage"
+                                                           widget="progressbar"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- 其他统计卡片类似 -->
+                                </div>
+                                <!-- 趋势图容器 -->
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h3>当日逐时趋势</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <field name="hourly_trend_data" widget="echarts_line"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- 同比分析列表视图（Odoo 18正确语法） -->
+        <record id="view_year_compare_list" model="ir.ui.view">
+            <field name="name">year.compare.list</field>
+            <field name="model">ecems.year_compare</field>
+            <field name="arch" type="xml">
+                <!-- 使用list标签替代tree -->
+                <list>
+                    <field name="circuit_id" string="回路"/>
+                    <field name="analysis_month" widget="selection"/>
+                    <field name="current_period" widget="monetary"/>
+                    <field name="same_period" widget="monetary"/>
+                    <field name="compare_rate" widget="percentage"
+                           options="{'digits': [2,2]}"/>
+                    <!-- 添加操作按钮 -->
+                    <header>
+                        <button name="action_export" type="object"
+                                string="导出数据" class="oe_highlight"/>
+                    </header>
+                </list>
+            </field>
+        </record>
+
+        <!-- views/energy_analysis_views.xml -->
+        <record id="action_energy_dashboard" model="ir.actions.act_window">
+            <field name="name">能耗综合看板</field>
+            <field name="res_model">ecems.energy_analysis</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_energy_dashboard"/>
+            <field name="target">current</field>
+        </record>
+    </data>
+</odoo>

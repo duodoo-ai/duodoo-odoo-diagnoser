@@ -1,0 +1,1118 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ecems
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-22 04:06+0000\n"
+"PO-Revision-Date: 2025-05-22 04:06+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__base_reading
+msgid "0点示数(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__temperature_a
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__temperature_a
+msgid "A相温度(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,help:ecems.field_ecems_electrical_safety__temperature_a
+msgid "A相线缆接点温度"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__temperature_b
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__temperature_b
+msgid "B相温度(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_chain_compare
+msgid "Chain Analysis"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__circuit_id
+msgid "Circuit"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__create_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__create_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__temperature_c
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__temperature_c
+msgid "C相温度(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_energy_analysis
+msgid "Energy Analysis"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__energy_data
+msgid "Energy Data (kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_electrical_safety_view_search
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_power_monitor_view_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_lineloss_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_mom_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_statistics_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_yoy_search
+msgid "Group By"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__hour
+msgid "Hour"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_hourly_data
+msgid "Hourly Energy Data"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__id
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__id
+msgid "ID"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,help:ecems.field_ecems_collection__hourly_readings
+msgid "JSON格式存储24小时数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__write_uid
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__write_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__temperature_n
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__temperature_n
+msgid "N相温度(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__parent_path
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__parent_path
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__parent_path
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_year_compare
+msgid "Year-on-Year Analysis"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__1
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__1
+msgid "一月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,help:ecems.field_ecems_circuit_name__identification
+msgid "一般组成：类型标识-区域标识-序号"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__7
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__7
+msgid "七月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__3
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__3
+msgid "三月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__last_month_usage
+msgid "上月用电量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__previous_usage
+msgid "上期用量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__parent_id
+msgid "上级回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__parent_id
+msgid "上级支路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__child_energy
+msgid "下级合计(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__child_ids
+msgid "下级支路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__voltage_level__medium
+msgid "中压"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__safety_id
+msgid "主记录"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__9
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__9
+msgid "九月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__2
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__2
+msgid "二月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__5
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__5
+msgid "五月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__voltage_level__low
+msgid "低压"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__identification__s
+msgid "信号回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__8
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__8
+msgid "八月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_hourly_data__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__company_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__company_id
+msgid "公司"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__6
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__6
+msgid "六月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_timeslot
+#: model:ir.ui.menu,name:ecems.menu_timeslot
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_search
+msgid "分时段用电"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_timeslot
+msgid "分时段用电统计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__analysis_type
+msgid "分析周期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__analysis_month
+msgid "分析月份"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__base_reading
+msgid "初始示数(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__previous_usage
+msgid "前一次用量 (kW·h)"
+msgstr ""
+
+#. module: ecems
+#. odoo-python
+#: code:addons/ecems/models/power_monitoring.py:0
+msgid "功率因数计算错误: %s"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__identification__d
+msgid "动力回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__11
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__11
+msgid "十一月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__12
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__12
+msgid "十二月"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__10`
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__10`
+msgid "十月"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_list
+msgid "历史数据"
+msgstr ""
+
+#. module: ecems
+#. odoo-python
+#: code:addons/ecems/models/electrical_safety.py:0
+msgid "历史温度数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_electrical_safety_history
+#: model:ir.model,name:ecems.model_ecems_electrical_safety_history
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__history_ids
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_form
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_history_form
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_history_list
+msgid "历史温度记录"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__reverse_reactive
+msgid "反向无功电度(kvarh)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__reverse_active
+msgid "反向有功电度(kWh)"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_form
+msgid "合计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.constraint,message:ecems.constraint_ecems_collection_unique_circuit_date
+#: model:ir.model.constraint,message:ecems.constraint_ecems_power_monitor_unique_circuit_date
+msgid "同一回路同一天只能有一条记录！"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__same_period
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__compare_value
+msgid "同期用量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_yoy
+msgid "同比分析"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_yoy
+#: model:ir.ui.menu,name:ecems.menu_yoy
+#: model_terms:ir.ui.view,arch_db:ecems.view_yoy_search
+msgid "同比分析模型"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__compare_rate
+msgid "同比率"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__yoy_rate
+msgid "同比率(%)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__period_type
+msgid "周期类型"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_year_compare__analysis_month__4
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_yoy__analysis_month__4
+msgid "四月"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_year_compare_list
+msgid "回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_circuit_name
+#: model:ir.model,name:ecems.model_ecems_circuit_name
+#: model:ir.ui.menu,name:ecems.menu_ecems_circuit_name
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_name_form
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_name_list
+msgid "回路主数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__circuit_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__name
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__circuit_id
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_electrical_safety_view_search
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_power_monitor_view_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_lineloss_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_mom_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_statistics_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_yoy_search
+msgid "回路名称"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__code
+msgid "回路编码"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.constraint,message:ecems.constraint_ecems_circuit_name_code_uniq
+msgid "回路编码必须唯一!"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__circuit_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__circuit_name
+msgid "回路详细名称"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__increase_value
+msgid "增加量 (kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__increase_value
+msgid "增长值"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__child_ids
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_name_form
+msgid "子回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__location
+msgid "安装位置"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_year_compare_list
+msgid "导出数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__hourly_data
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_form
+msgid "小时数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__hourly_readings
+msgid "小时示数存储"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__peak_price
+msgid "尖单价"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_form
+msgid "尖时段"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__peak_energy
+msgid "尖电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__peak_amount
+msgid "尖金额"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__high_price
+msgid "峰单价"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_form
+msgid "峰时段"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__high_energy
+msgid "峰电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__high_amount
+msgid "峰金额"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__diff_percent
+msgid "差值百分比(%)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__normal_price
+msgid "平单价"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_power_monitor
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__avg_power_factor
+#: model:ir.ui.menu,name:ecems.menu_avg_power
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_power_monitor_view_search
+msgid "平均功率因数"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_form
+msgid "平时段"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__normal_energy
+msgid "平电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__normal_amount
+msgid "平金额"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__year_total_usage
+msgid "年度累计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit__record_type__yearly
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_mom__period_type__yearly
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_statistics__report_type__yearly
+msgid "年报"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__start_date
+msgid "开始日期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__start_time
+msgid "开始时间"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__current_year
+msgid "当前年度"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__current_date
+msgid "当前日期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__current_usage
+msgid "当前用量 (kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__current_energy
+msgid "当前能耗(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_energy_dashboard
+msgid "当日逐时趋势"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__current_month_usage
+msgid "当月用电量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__current_usage
+msgid "当期用量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__total_energy
+msgid "总电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__total_energy
+msgid "总能耗 (kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__total_cost
+msgid "总费用"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__total_amount
+msgid "总金额"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__record_type
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__report_type
+msgid "报表类型"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__identification__c
+msgid "控制回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_circuit
+#: model:ir.ui.menu,name:ecems.menu_circuit
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_form
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_list
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_search
+msgid "支路能耗模型"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_circuit
+msgid "支路能耗统计"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_power_monitor_form
+msgid "无功电度"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit__record_type__daily
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_mom__period_type__daily
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_statistics__report_type__daily
+msgid "日报"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__hourly_data
+msgid "时段数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__display_name
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__display_name
+msgid "显示名称"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__max_temperature
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__max_temperature
+msgid "最高温度(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__analysis_month
+msgid "月份"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit__record_type__monthly
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_mom__period_type__monthly
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_statistics__report_type__monthly
+msgid "月报"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_power_monitor_form
+msgid "有功电度"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_year_compare__current_period
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__current_value
+msgid "本期用量"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__forward_reactive
+msgid "正向无功电度(kvarh)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__forward_active
+msgid "正向有功电度(kWh)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__hourly_data_ids
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_form
+msgid "每小时数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,help:ecems.field_ecems_electrical_safety__temperature_threshold
+#: model:ir.model.fields,help:ecems.field_ecems_electrical_safety_history__temperature_threshold
+msgid "温度报警临界值"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__temperature_threshold
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__temperature_threshold
+msgid "温度阈值(℃)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__identification__l
+msgid "照明回路"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_mom
+#: model:ir.model,name:ecems.model_ecems_mom
+#: model:ir.ui.menu,name:ecems.menu_mom
+#: model_terms:ir.ui.view,arch_db:ecems.view_mom_search
+msgid "环比分析模型"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__mom_rate
+msgid "环比增长率 (%)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_chain_compare__chain_rate
+msgid "环比率"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_statistics
+#: model:ir.ui.menu,name:ecems.menu_statistics
+#: model_terms:ir.ui.view,arch_db:ecems.view_statistics_search
+msgid "用电统计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_statistics
+msgid "用电统计分析"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__total_consumption
+msgid "用电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_collection
+#: model:ir.ui.menu,name:ecems.menu_collection
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_list
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_search
+msgid "用电集抄"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_collection
+msgid "用电集抄管理"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.menu_power_monitor
+msgid "电力监控"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_power_monitor
+msgid "电力监控数据"
+msgstr ""
+
+#. module: ecems
+#: model:res.groups,name:ecems.group_power_monitor
+msgid "电力监控管理"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__voltage_level
+msgid "电压等级"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.menu_ecems_monitoring
+msgid "电气安全"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.menu_ecems_electrical_safety_history
+msgid "电气安全历史记录"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_ecems_electrical_safety
+#: model:ir.model,name:ecems.model_ecems_electrical_safety
+#: model:ir.ui.menu,name:ecems.menu_ecems_electrical_safety
+#: model_terms:ir.ui.view,arch_db:ecems.ecems_electrical_safety_view_search
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_form
+#: model_terms:ir.ui.view,arch_db:ecems.view_electrical_safety_list
+msgid "电气安全监测"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__identification__p
+msgid "电源回路"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_energy_dashboard
+msgid "电统计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.menu_energy_stats
+msgid "电能统计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_power_monitor__monitor_date
+msgid "监测日期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__circuit_id
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__circuit_id
+msgid "监测点名称"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit_name__identification
+msgid "类型标识"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__total_reading
+msgid "累计示数(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_lineloss
+#: model:ir.ui.menu,name:ecems.menu_lineloss
+#: model_terms:ir.ui.view,arch_db:ecems.view_lineloss_search
+msgid "线路损耗"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model,name:ecems.model_ecems_lineloss
+msgid "线路损耗分析"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_statistics__end_date
+msgid "结束日期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__end_time
+msgid "结束时间"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,help:ecems.field_ecems_collection__hourly_data
+msgid "结构：[{'hour':0-23, 'value':读数}]"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_collection_form
+msgid "统计"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.ecems_main
+msgid "能源管理"
+msgstr ""
+
+#. module: ecems
+#: model:res.groups,name:ecems.group_ecems_user
+msgid "能源管理-普通用户"
+msgstr ""
+
+#. module: ecems
+#: model:res.groups,name:ecems.group_ecems_manager
+msgid "能源管理-系统管理员"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.ecems_analysis
+msgid "能耗分析"
+msgstr ""
+
+#. module: ecems
+#: model:res.groups,name:ecems.group_energy_analysis
+msgid "能耗分析管理"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__energy_diff
+msgid "能耗差值(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_lineloss_form
+msgid "能耗数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.actions.act_window,name:ecems.action_energy_dashboard
+#: model:ir.ui.menu,name:ecems.menu_dashboard
+msgid "能耗综合看板"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_power_monitor_form
+msgid "计算结果"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_collection__record_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_lineloss__record_date
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__record_date
+msgid "记录日期"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_circuit__record_time
+msgid "记录时间"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_circuit_form
+msgid "详细数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__valley_price
+msgid "谷单价"
+msgstr ""
+
+#. module: ecems
+#: model_terms:ir.ui.view,arch_db:ecems.view_timeslot_form
+msgid "谷时段"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__valley_energy
+msgid "谷电量(kW·h)"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_timeslot__valley_amount
+msgid "谷金额"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__is_overheat
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__is_overheat
+msgid "超温报警"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_yoy__trend_values
+msgid "趋势值"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_energy_analysis__hourly_trend_data
+msgid "趋势数据"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_mom__trend_arrow
+msgid "趋势箭头"
+msgstr ""
+
+#. module: ecems
+#: model:ir.ui.menu,name:ecems.ecems_circuit_name
+msgid "配置管理"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety__collection_time
+#: model:ir.model.fields,field_description:ecems.field_ecems_electrical_safety_history__collection_time
+msgid "采集时间"
+msgstr ""
+
+#. module: ecems
+#: model:ir.model.fields.selection,name:ecems.selection__ecems_circuit_name__voltage_level__high
+msgid "高压"
+msgstr ""

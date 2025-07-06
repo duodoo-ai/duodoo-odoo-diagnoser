@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="circuit_name_01" model="ecems.circuit.name">
+        <field name="code">P-01-01</field>
+        <field name="name">工厂车间 1 区主电源回路</field>
+        <field name="voltage_level">high</field>
+        <field name="location">工厂车间 1 区</field>
+        <field name="identification">P</field>
+        <field name="parent_id" ref=""/>
+    </record>
+    <record id="circuit_name_01_01" model="ecems.circuit.name">
+        <field name="code">P-01-01-01</field>
+        <field name="name">工厂车间 1 区主电源回路01区</field>
+        <field name="voltage_level">medium</field>
+        <field name="location">工厂车间 1 区</field>
+        <field name="identification">P</field>
+        <field name="parent_id" ref="circuit_name_01"/>
+    </record>
+    <record id="circuit_name_02" model="ecems.circuit.name">
+        <field name="code">C-A-15</field>
+        <field name="name">楼宇自控系统 A 区空调控制回路</field>
+        <field name="voltage_level">low</field>
+        <field name="location">楼宇自控系统 A 区</field>
+        <field name="identification">C</field>
+    </record>
+    <record id="circuit_name_03" model="ecems.circuit.name">
+        <field name="code">L-03-27</field>
+        <field name="name">商场 3 层公共区域照明回路</field>
+        <field name="voltage_level">low</field>
+        <field name="location">商场 3 层公共区域</field>
+        <field name="identification">L</field>
+    </record>
+    <record id="circuit_name_04" model="ecems.circuit.name">
+        <field name="code">D-B-09</field>
+        <field name="name">生产线 B 区传送带动力供电回路</field>
+        <field name="voltage_level">medium</field>
+        <field name="location">生产线 B 区</field>
+        <field name="identification">D</field>
+    </record>
+    <record id="circuit_name_05" model="ecems.circuit.name">
+        <field name="code">S-02-45</field>
+        <field name="name">实验室 2 区传感器信号传输回路</field>
+        <field name="voltage_level">low</field>
+        <field name="location">实验室 2 区</field>
+        <field name="identification">S</field>
+    </record>
+</odoo>

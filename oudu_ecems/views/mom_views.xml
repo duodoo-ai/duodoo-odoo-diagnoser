@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_mom_list" model="ir.ui.view">
+            <field name="name">mom.list</field>
+            <field name="model">ecems.mom</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="project_id"/>
+                    <field name="circuit_id"/>
+                    <field name="period_type"/>
+                    <field name="current_date"/>
+                    <field name="current_usage" widget="monetary"/>
+                    <field name="previous_usage" widget="monetary"/>
+                    <field name="increase_value" widget="monetary"/>
+                    <field name="mom_rate" widget="percentage"/>
+
+                    <!-- 趋势箭头 -->
+                    <field name="trend_arrow"
+                           invisible="mom_rate == 0"
+                           widget="image"
+                           options="{'color_up': 'green', 'color_down': 'red'}"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_mom_search" model="ir.ui.view">
+            <field name="name">ecems.mom.search</field>
+            <field name="model">ecems.mom</field>
+            <field name="arch" type="xml">
+                <search string="环比分析模型">
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="回路名称" domain="[]" context="{'group_by':'circuit_id'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="company_id" groups="base.group_multi_company" icon="fa-building" enable_counters="1"/>
+                        <field name="circuit_id" icon="fa-users" enable_counters="1"/>
+                    </searchpanel>
+                </search>
+             </field>
+        </record>
+
+        <!-- 动作定义 -->
+        <record id="action_ecems_mom" model="ir.actions.act_window">
+            <field name="name">环比分析模型</field>
+            <field name="res_model">ecems.mom</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" eval="False"/>
+            <field name="search_view_id" ref="view_mom_search"/>
+        </record>
+    </data>
+</odoo>
