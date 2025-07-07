@@ -78,3 +78,18 @@ msgstr "员工管理"
 #: model:ir.ui.menu,name:iot.iot_menu_root
 msgid "IoT"
 msgstr "物联数采"
+
+#. module: knowledge
+#: model:ir.ui.menu,name:knowledge.knowledge_menu_root
+msgid "Knowledge"
+msgstr "知识管理"
+
+#. module: helpdesk
+#: model:ir.ui.menu,name:helpdesk.menu_helpdesk_root
+msgid "Helpdesk"
+msgstr "售后服务"
+
+#. module: utm
+#: model:ir.ui.menu,name:utm.menu_link_tracker_root
+msgid "Link Tracker"
+msgstr "业务跟踪"

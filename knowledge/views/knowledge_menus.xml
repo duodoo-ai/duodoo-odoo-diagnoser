@@ -4,7 +4,7 @@
         id="knowledge_menu_root"
         name="Knowledge"
         web_icon="knowledge,static/description/icon.png"
-        sequence="17"/>
+        sequence="455"/>
 
     <menuitem
         id="knowledge_menu_home"
