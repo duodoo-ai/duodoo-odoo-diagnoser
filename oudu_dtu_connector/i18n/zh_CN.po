@@ -1,0 +1,239 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* oudu_dtu_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-26 05:22+0000\n"
+"PO-Revision-Date: 2025-03-26 05:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: oudu_dtu_connector
+#: model_terms:ir.ui.view,arch_db:oudu_dtu_connector.inherit_view_add_iot_box
+msgid "<strong>Option C. Register Dtu Box</strong><br/>"
+msgstr ""
+"<strong>选项C. 注册DTU盒子\n"
+"                </strong>"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_add_iot_box
+msgid "Add IoT Box wizard"
+msgstr "添加IOT 盒子向导"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_dtu_data
+msgid "DTU Data Collection"
+msgstr "DTU数据收集"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_dtu_data_controller
+msgid "DTU Data Collection Controller"
+msgstr "DTU数据采集"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_dtu_data_service
+msgid "DTU Data Collection Service"
+msgstr "DTU数据采集"
+
+#. module: oudu_dtu_connector
+#. odoo-python
+#: code:addons/oudu_dtu_connector/wizard/add_iot_box.py:0
+msgid "DTU IMEI Already Exists."
+msgstr "DTU序列号(IMEI)已存在"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_add_iot_box__imei
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_iot_box__imei
+msgid "IMEI"
+msgstr "国际移动设备身份码"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_iot_box
+msgid "IoT Box"
+msgstr "IoT 盒子"
+
+#. module: oudu_dtu_connector
+#. odoo-python
+#: code:addons/oudu_dtu_connector/wizard/add_iot_box.py:0
+msgid "Please enter a DTU IMEI."
+msgstr "请输入一个DTU序列号(IMEI)"
+
+#. module: oudu_dtu_connector
+#: model_terms:ir.ui.view,arch_db:oudu_dtu_connector.inherit_view_add_iot_box
+msgid "Register DTU"
+msgstr "注册DTU设备"
+
+#. module: oudu_dtu_connector
+#: model:ir.actions.server,name:oudu_dtu_connector.cron_start_dtu_service_ir_actions_server
+msgid "ZQWL IoT DTU01- Intelligent Embedded IoT DTU Data Collection"
+msgstr "【智嵌物联】DTU01-智嵌物联DTU数据采集"
+
+#. module: oudu_dtu_connector
+#: model:ir.actions.server,name:oudu_dtu_connector.cron_compute_monthly_traffic_ir_actions_server
+msgid "ZQWL IoT DTU02- Intelligent Embedded IoT DTU Data Aggregate"
+msgstr "【智嵌物联】DTU02-智嵌物联DTU数据汇总(月季年总)"
+
+#. module: oudu_dtu_connector
+#: model:ir.actions.server,name:oudu_dtu_connector.cron_start_dtu_demo_ir_actions_server
+msgid "ZQWL IoT DTU99- Intelligent Embedded IoT DTU Data Collection（Demo）"
+msgstr "【智嵌物联】DTU99-智嵌物联DTU数据采集(动态生成模拟数据)"
+
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__company_id
+msgid "Company"
+msgstr "公司"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__create_uid
+msgid "Created by"
+msgstr "创建人"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__create_date
+msgid "Created on"
+msgstr "创建时间"
+
+#. module: oudu_dtu_connector
+#: model:ir.ui.menu,name:oudu_dtu_connector.dtu_data_collection_meu
+msgid "DTU"
+msgstr "DTU盒子"
+
+#. module: oudu_dtu_connector
+#: model:ir.model,name:oudu_dtu_connector.model_dtu_data
+#: model_terms:ir.ui.view,arch_db:oudu_dtu_connector.dtu_data_collection_tree
+msgid "DTU Data Collection"
+msgstr "DTU数据采集"
+
+#. module: oudu_dtu_connector
+#: model:ir.actions.act_window,name:oudu_dtu_connector.action_dtu_data_collection
+msgid "DTU Data Collection Action"
+msgstr "DTU数据采集"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__display_name
+msgid "Display Name"
+msgstr "显示名称"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__id
+msgid "ID"
+msgstr "唯一码"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__imei
+msgid "IMEI"
+msgstr "国际移动设备识别码"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__write_uid
+msgid "Last Updated by"
+msgstr "最后修改人"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__write_date
+msgid "Last Updated on"
+msgstr "最后修改时间"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__name
+msgid "name"
+msgstr "名称"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__time
+msgid "Upload time"
+msgstr "上传时间"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__model
+msgid "model"
+msgstr "型号"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__version
+msgid "version"
+msgstr "版本"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__running_time
+msgid "running_time"
+msgstr "运行时间"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__remaining_memory
+msgid "remaining_memory"
+msgstr "剩余内存"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__signal_strength
+msgid "signal_strength"
+msgstr "信号强度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__pressure
+msgid "pressure"
+msgstr "压力"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__traffic
+msgid "traffic"
+msgstr "流量"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__liquid_level
+msgid "liquid_level"
+msgstr "液位"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__temperature
+msgid "temperature"
+msgstr "温度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__atmospheric_pressure
+msgid "atmospheric_pressure"
+msgstr "气压"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__humidity
+msgid "humidity"
+msgstr "湿度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__gps_longitude
+msgid "gps_longitude"
+msgstr "GPS经度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__gps_latitude
+msgid "gps_latitude"
+msgstr "GPS纬度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__gsm_longitude
+msgid "gsm_longitude"
+msgstr "GSM经度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__gsm_latitude
+msgid "gsm_latitude"
+msgstr "GSM纬度"
+
+#. module: oudu_dtu_connector
+#: model:ir.model.fields,field_description:oudu_dtu_connector.field_dtu_data__Company
+msgid "Company"
+msgstr "公司"
+
+#. module: oudu_dtu_connector
+#: model:ir.ui.menu,name:oudu_dtu_connector.iot_root_menu
+msgid "IoT"
+msgstr "数据采集"
+
