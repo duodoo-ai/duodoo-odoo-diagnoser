@@ -1,6 +1,6 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* odoo_project
+# 	* oudu_core
 #
 msgid ""
 msgstr ""
@@ -46,7 +46,7 @@ msgstr "配置管理"
 #. module: project
 #: model:ir.ui.menu,name:project.menu_main_pm
 msgid "Project"
-msgstr "项目管理"
+msgstr "项目任务"
 
 
 #. module: calendar
@@ -57,7 +57,12 @@ msgstr "工作日历"
 #. module: sale
 #: model:ir.ui.menu,name:sale.sale_menu_root
 msgid "Sales"
-msgstr "销售管理"
+msgstr "销售订单"
+
+#. module: crm
+#: model:ir.ui.menu,name:crm.crm_menu_root
+msgid "CRM"
+msgstr "客户商机"
 
 #. module: account
 #: model:ir.ui.menu,name:account.menu_finance
@@ -93,3 +98,13 @@ msgstr "售后服务"
 #: model:ir.ui.menu,name:utm.menu_link_tracker_root
 msgid "Link Tracker"
 msgstr "业务跟踪"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_contacts
+msgid "Contacts"
+msgstr "客商档案"
+
+#. module: stock
+#: model:ir.ui.menu,name:stock.menu_stock_root
+msgid "Inventory"
+msgstr "库存作业"
