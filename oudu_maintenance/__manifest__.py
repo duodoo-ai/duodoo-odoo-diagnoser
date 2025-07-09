@@ -57,7 +57,7 @@
             # 'oudu_maintenance/static/src/js/barcode_scanner.js',
             # 'oudu_maintenance/static/src/xml/barcode_template.xml',
             'oudu_maintenance/static/src/css/qrcode_style.css',
-            'oudu_maintenance/static/src/js/barcode_handler.js'
+            # 'oudu_maintenance/static/src/js/barcode_handler.js'
             # 'oudu_maintenance/static/src/js/instascan.min.js',
             # 'oudu_maintenance/static/src/css/qr_scanner.css',
             # 'oudu_maintenance/static/src/xml/qr_template.xml',
