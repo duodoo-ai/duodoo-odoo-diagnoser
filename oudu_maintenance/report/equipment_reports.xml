@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 单个设备二维码报表 -->
+    <template id="report_equipment_qr">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.internal_layout">
+                    <div class="page">
+                        <div class="text-center">
+                            <h2>设备二维码</h2>
+                            <h3><t t-esc="o.name"/></h3>
+                            <img t-att-src="'data:image/png;base64,' + o.qr_code"
+                                 style="width: 300px; height: 300px; border: 1px solid #ddd; padding: 10px;"/>
+                            <div class="mt-3">
+                                <p>设备ID: <t t-esc="o.id"/></p>
+                                <p>序列号: <t t-esc="o.serial_no or 'N/A'"/></p>
+                                <p>生成日期: <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M')"/></p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- 批量设备二维码报表 -->
+    <template id="report_equipment_qr_batch">
+        <t t-call="web.html_container">
+            <div class="page">
+                <div class="text-center">
+                    <h2>设备二维码批量打印</h2>
+                    <p class="mb-4">打印日期: <t t-esc="datetime.datetime.now().strftime('%Y-%m-%d %H:%M')"/></p>
+
+                    <div class="row">
+                        <t t-foreach="docs" t-as="o">
+                            <div class="col-4 text-center mb-4" style="page-break-inside: avoid;">
+                                <div style="border: 1px solid #eee; padding: 15px; margin-bottom: 20px;">
+                                    <h4><t t-esc="o.name"/></h4>
+                                    <img t-att-src="'data:image/png;base64,' + o.qr_code"
+                                         style="width: 200px; height: 200px;"/>
+                                    <div class="mt-2">
+                                        <p>ID: <t t-esc="o.id"/></p>
+                                        <p><t t-esc="o.serial_no or 'N/A'"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- 报表动作定义 -->
+    <record id="action_equipment_qr_report" model="ir.actions.report">
+        <field name="name">设备二维码打印</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">equipment_management.report_equipment_qr</field>
+        <field name="report_file">equipment_management.report_equipment_qr</field>
+        <field name="print_report_name">'设备二维码_' + object.name + '.pdf'</field>
+        <field name="binding_model_id" ref="model_maintenance_equipment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="action_equipment_qr_report_batch" model="ir.actions.report">
+        <field name="name">设备二维码批量打印</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">equipment_management.report_equipment_qr_batch</field>
+        <field name="report_file">equipment_management.report_equipment_qr_batch</field>
+        <field name="print_report_name">'设备二维码批量打印_' + datetime.datetime.now().strftime('%Y%m%d%H%M') + '.pdf'</field>
+        <field name="binding_model_id" ref="model_maintenance_equipment"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

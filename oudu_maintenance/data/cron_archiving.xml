@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        监测数据归档定时任务
+        功能：每天自动归档180天前的监测数据
+        执行频率：每天执行一次
+    -->
+    <record id="cron_archive_monitoring_data" model="ir.cron">
+        <!-- 任务名称，翻译为英文 -->
+        <field name="name">【Equipment Monitoring】Archive Old Data (Older Than 180 Days)</field>
+        <field name="model_id" ref="model_equipment_monitoring_data"/>
+        <field name="state">code</field>
+        <field name="code">model.archive_old_data(180)</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="active" eval="True"/>
+        <field name="priority">10</field>
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 02:00:00')"/>
+    </record>
+</odoo>

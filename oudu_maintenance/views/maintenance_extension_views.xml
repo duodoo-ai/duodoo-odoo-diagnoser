@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 扩展维护设备模型 -->
+    <record id="view_maintenance_equipment_form_inherit" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.inherit</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+        <field name="arch" type="xml">
+            <!-- 添加二维码显示区域 - 优化布局 -->
+            <xpath expr="//div[@class='oe_button_box']" position="after">
+                <div class="oe_title" style="margin-top: 16px;">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <!-- 左侧二维码区域 - 完美居中 -->
+                        <div class="d-flex justify-content-center align-items-center" style="width: 40%; height: 200px;">
+                            <div class="text-center position-relative">
+                                <field name="qr_code" widget="image"
+                                       class="oe_avatar" style="width: 150px; height: 150px; border: 1px solid #dee2e6; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"
+                                       options="{'preview_image': 'qr_code'}" string="二维码"/>
+                                <div class="mt-2 text-muted small position-absolute start-0 end-0">设备识别码: <field name="id"/></div>
+                            </div>
+                        </div>
+
+                        <!-- 右侧按钮和信息区域 - 左对齐内容 -->
+                        <div class="d-flex flex-column" style="width: 55%;">
+                            <!-- 按钮组 -->
+                            <div class="d-flex mb-3 justify-content-start">
+                                <button name="generate_qr_code" string="生成二维码"
+                                        type="object" class="btn btn-primary me-2"
+                                        icon="fa-qrcode"/>
+                                <button name="action_print_qr" string="打印二维码"
+                                        type="object" class="btn btn-secondary me-2"
+                                        icon="fa-print"/>
+                                <button name="batch_generate_selected" string="批量打印"
+                                        type="object" class="btn btn-outline-secondary"
+                                        icon="fa-print"/>
+                            </div>
+
+                            <!-- 使用说明 - 左对齐 -->
+                            <div class="alert alert-info" style="background-color: #f0f9ff; border-color: #b8daff; padding: 15px; border-left: 4px solid #0d6efd;">
+                                <div class="d-flex align-items-start">
+                                    <i class="fa fa-info-circle me-3 mt-1" style="color: #0d6efd; font-size: 1.5em; min-width: 24px;"></i>
+                                    <div>
+                                        <strong style="display: block; margin-bottom: 8px; color: #0a58ca;">使用说明</strong>
+                                        <ul class="mb-0" style="padding-left: 20px; font-size: 0.95em;">
+                                            <li>扫描二维码可快速访问设备详情页面</li>
+                                            <li>未生成二维码时请点击"生成二维码"按钮</li>
+                                            <li>打印功能支持单个或批量打印二维码标签</li>
+                                            <li>批量打印可选择多个设备后进行操作</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+
+            <!-- 在基本信息的第一个分组内添加设备分类和状态字段 -->
+             <xpath expr="//sheet/group/group/field[@name='owner_user_id']" position="after">
+                <field name="equipment_category" string="设备分类" widget="selection" class="mt8"/>
+                <field name="status" string="状态" widget="selection" class="mt8"/>
+            </xpath>
+
+            <!-- 在技术参数页面的第一个分组内添加设备参数 - 优化布局 -->
+            <xpath expr="//page[@name='product_information']//group[1]" position="inside">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>机械参数</h3>
+                        <group>
+                            <field name="drive_type" string="驱动类型" class="mt8"/>
+                            <field name="motor_power" string="电机功率(kW)" class="mt8"/>
+                            <field name="rated_speed" string="额定转速(RPM)" class="mt8"/>
+                            <field name="bearing_type" string="轴承类型" class="mt8"/>
+                        </group>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>维护参数</h3>
+                        <group>
+                            <field name="expected_life" string="预期寿命(年)" class="mt8"/>
+                            <field name="lubrication_period" string="润滑周期(天)" class="mt8"/>
+                            <field name="coupling_type" string="联轴器类型" class="mt8"/>
+                        </group>
+                    </div>
+                </div>
+                <div class="row mt16">
+                    <div class="col-12">
+                        <h3>电气参数</h3>
+                        <field name="electrical_params" string="电气参数" class="mt8" nolabel="1"
+                               placeholder="输入电气参数详细信息..."/>
+                    </div>
+                </div>
+            </xpath>
+
+            <!-- 在维护页面内添加监测数据列表 - 优化布局 -->
+            <xpath expr="//page[@name='maintenance']" position="inside">
+                <div class="mt16">
+                    <h3>实时监测数据</h3>
+                    <div class="alert alert-warning">
+                        <i class="fa fa-exclamation-triangle me-2"></i>
+                        以下数据显示最近30天的监测记录
+                    </div>
+                    <field name="monitoring_data_ids" string="监测数据" colspan="2">
+                        <list editable="bottom" create="0">
+                            <field name="timestamp" widget="datetime" string="时间" options="{'format': 'yyyy-MM-dd HH:mm'}"/>
+                            <field name="rotation_speed" string="转速(RPM)" class="text-end"/>
+                            <field name="vibration_velocity" string="振动速度(mm/s)" class="text-end"/>
+                            <field name="acceleration_env1" string="加速度包络1(g)" class="text-end"/>
+                            <field name="acceleration_env2" string="加速度包络2(g)" class="text-end"/>
+                            <field name="temperature" string="温度(°C)" class="text-end"/>
+                        </list>
+                        <form>
+                            <group>
+                                <field name="equipment_id" invisible="1"/>
+                                <field name="timestamp" widget="datetime" string="时间"/>
+                                <group>
+                                    <field name="rotation_speed" string="转速(RPM)"/>
+                                    <field name="vibration_velocity" string="振动速度(mm/s)"/>
+                                </group>
+                                <group>
+                                    <field name="acceleration_env1" string="加速度包络1(g)"/>
+                                    <field name="acceleration_env2" string="加速度包络2(g)"/>
+                                </group>
+                                <field name="temperature" string="温度(°C)"/>
+                            </group>
+                        </form>
+                    </field>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 设备列表视图扩展 -->
+    <record id="view_equipment_list_extended" model="ir.ui.view">
+        <field name="name">maintenance.equipment.list.extended</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <button name="batch_generate_selected" string="批量打印二维码"
+                        type="object" icon="fa-print"
+                        class="btn-secondary"/>
+            </xpath>
+
+            <!-- 在名称字段后添加设备分类、状态和二维码生成状态字段 -->
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="equipment_category" string="设备分类"/>
+                <field name="status" string="状态"/>
+                <field name="qr_code_generated" invisible="1" string="二维码生成状态"/>
+            </xpath>
+
+            <!-- 在类别 ID 字段后添加技术数据字段 -->
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="technical_data" widget="text" options="{'no_label': true}" string="技术数据"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 设备看板视图扩展 -->
+    <record id="view_equipment_kanban_extended" model="ir.ui.view">
+        <field name="name">maintenance.equipment.kanban.extended</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_kanban"/>
+        <field name="arch" type="xml">
+            <!-- 在看板卡片模板内添加设备分类和状态徽章以及二维码显示 -->
+            <xpath expr="//t[@t-name='card']" position="inside">
+                <!-- 设备分类和状态徽章 -->
+                <div class="d-flex justify-content-between">
+                    <field name="equipment_category" widget="badge"
+                           options="{'element_class': 'o_kanban_badge_left'}" string="设备分类"/>
+                    <field name="status" widget="badge"
+                           options="{'element_class': 'o_kanban_badge_right'}" string="状态"/>
+                </div>
+
+                <!-- 二维码显示 -->
+                <div class="o_kanban_image text-center mt-2" t-if="record.qr_code.raw_value">
+                    <img t-att-src="'data:image/png;base64,' + record.qr_code.raw_value"
+                         class="oe_kanban_avatar" width="80" height="80"/>
+                    <div class="small mt-1">扫描二维码</div>
+                </div>
+            </xpath>
+
+            <!-- 在设备名称字段后添加型号和序列号信息 -->
+            <xpath expr="//field[@name='name']" position="after">
+                <div t-if="record.model.raw_value" class="small">
+                    <span>型号: </span>
+                    <field name="model"/>
+                </div>
+                <div t-if="record.serial_no.raw_value" class="small">
+                    <span>序列号: </span>
+                    <field name="serial_no"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 设备搜索视图扩展 -->
+    <record id="view_equipment_search_extended" model="ir.ui.view">
+        <field name="name">maintenance.equipment.search.extended</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="inherit_id" ref="maintenance.hr_equipment_view_search"/>
+        <field name="arch" type="xml">
+            <!-- 在搜索区域内添加各种筛选器和搜索字段 -->
+            <xpath expr="//search" position="inside">
+                <!-- 设备分类分组 -->
+                <filter name="equipment_category" string="设备分类"
+                        domain="[]" context="{'group_by':'equipment_category'}"/>
+
+                <!-- 设备状态分组 -->
+                <filter name="status" string="状态"
+                        domain="[]" context="{'group_by':'status'}"/>
+
+                <!-- 二维码生成状态 -->
+                <filter name="qr_generated" string="已生成二维码"
+                        domain="[('qr_code_generated','=',True)]"/>
+
+                <!-- 需要维护的设备 -->
+                <filter name="needs_maintenance" string="需要维护"
+                        domain="[('status','=','maintenance')]"/>
+
+                <!-- 搜索字段 -->
+                <field name="equipment_category" string="分类"/>
+                <field name="status" string="状态"/>
+                <field name="technical_data" string="技术数据"
+                       filter_domain="[('technical_data','ilike',self)]"/>
+                <field name="drive_type" string="驱动类型"
+                       filter_domain="[('drive_type','ilike',self)]"/>
+                <field name="serial_no" string="序列号"
+                       filter_domain="[('serial_no','ilike',self)]"/>
+            </xpath>
+
+            <!-- 在现有分类筛选器后添加振动告警筛选器 -->
+            <xpath expr="//filter[@name='category']" position="after">
+                <filter string="振动告警" name="vibration_alert"
+                        domain="[('monitoring_data_ids.vibration_velocity','&gt;',10)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- 监测数据视图 -->
+    <record id="view_monitoring_data_list" model="ir.ui.view">
+        <field name="name">equipment.monitoring.data.list</field>
+        <field name="model">equipment.monitoring.data</field>
+        <field name="arch" type="xml">
+            <list string="监测数据">
+                <field name="timestamp" widget="datetime" string="时间戳"/>
+                <field name="equipment_id" string="设备"/>
+                <field name="rotation_speed" string="转速(RPM)"/>
+                <field name="vibration_velocity" string="振动速度(mm/s)"/>
+                <field name="acceleration_env1" string="加速度包络1(g)"/>
+                <field name="acceleration_env2" string="加速度包络2(g)"/>
+                <field name="temperature" string="温度(°C)"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_monitoring_data_form" model="ir.ui.view">
+        <field name="name">equipment.monitoring.data.form</field>
+        <field name="model">equipment.monitoring.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="equipment_id" string="设备"/>
+                        <field name="timestamp" widget="datetime" string="时间戳"/>
+                    </group>
+                    <group string="振动数据">
+                        <field name="rotation_speed" string="转速(RPM)"/>
+                        <field name="vibration_velocity" string="振动速度(mm/s)"/>
+                        <field name="acceleration_env1" string="加速度包络1(g)"/>
+                        <field name="acceleration_env2" string="加速度包络2(g)"/>
+                    </group>
+                    <group>
+                        <field name="temperature" string="温度(°C)"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_monitoring_data_search" model="ir.ui.view">
+        <field name="name">equipment.monitoring.data.search</field>
+        <field name="model">equipment.monitoring.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="equipment_id" string="设备"/>
+                <field name="timestamp" filter_domain="[('timestamp','&lt;=', self)]" string="时间戳"/>
+                <filter name="high_vibration" string="高振动"
+                        domain="[('vibration_velocity','&gt;',10)]"/>
+                <filter name="high_temp" string="高温"
+                        domain="[('temperature','&gt;',60)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- 告警规则视图 -->
+    <record id="view_alert_rule_list" model="ir.ui.view">
+        <field name="name">equipment.alert.rule.list</field>
+        <field name="model">equipment.alert.rule</field>
+        <field name="arch" type="xml">
+            <list string="告警规则">
+                <field name="name" string="规则名称"/>
+                <field name="equipment_id" string="设备"/>
+                <field name="parameter" string="参数"/>
+                <field name="condition" string="条件"/>
+                <field name="threshold" string="阈值"/>
+                <field name="severity" widget="priority" string="严重性"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_alert_rule_form" model="ir.ui.view">
+        <field name="name">equipment.alert.rule.form</field>
+        <field name="model">equipment.alert.rule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" string="规则名称"/>
+                        <field name="equipment_id" string="设备"/>
+                        <field name="severity" widget="priority" string="严重性"/>
+                    </group>
+                    <group string="规则条件">
+                        <field name="parameter" string="参数"/>
+                        <field name="condition" string="条件"/>
+                        <field name="threshold" string="阈值"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- 巡检记录视图 -->
+    <record id="view_inspection_list" model="ir.ui.view">
+        <field name="name">equipment.inspection.list</field>
+        <field name="model">equipment.inspection</field>
+        <field name="arch" type="xml">
+            <list string="巡检记录">
+                <field name="name" string="参考编号"/>
+                <field name="equipment_id" string="设备"/>
+                <field name="inspection_date" widget="datetime" string="检查日期"/>
+                <field name="inspector_id" string="检查员"/>
+                <field name="result" widget="selection_badge" string="结果"/>
+                <field name="request_id" widget="many2one_button" string="维护请求"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_inspection_form" model="ir.ui.view">
+        <field name="name">equipment.inspection.form</field>
+        <field name="model">equipment.inspection</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="create_request" type="object"
+                            string="创建维护请求" class="oe_highlight"
+                            invisible="request_id != False"/>
+
+                    <field name="result" widget="statusbar"
+                           statusbar_visible="pass,fail,na"
+                           options="{'clickable': '1'}" string="结果"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" string="参考编号"/>
+                        <field name="equipment_id" string="设备"/>
+                        <field name="inspection_date" widget="datetime" string="检查日期"/>
+                        <field name="inspector_id" string="检查员"/>
+                    </group>
+                    <group>
+                        <field name="result" string="结果"/>
+                        <field name="notes" string="备注"/>
+                    </group>
+
+                    <field name="request_id"
+                           invisible="request_id == False" string="维护请求"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_inspection_kanban" model="ir.ui.view">
+        <field name="name">equipment.inspection.kanban</field>
+        <field name="model">equipment.inspection</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="result">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card">
+                            <div class="o_kanban_record_top">
+                                <strong>
+                                    <field name="name" string="参考编号"/>
+                                </strong>
+                                <span class="float-right">
+                                    <field name="equipment_id" string="设备"/>
+                                </span>
+                            </div>
+                            <div>
+                                <field name="inspection_date" widget="datetime" string="检查日期"/>
+                            </div>
+                            <div t-attf-class="oe_kanban_bottom #{record.result.raw_value == 'pass' ? 'text-success' : record.result.raw_value == 'fail' ? 'text-danger' : ''}">
+                                <field name="result" widget="badge" string="结果"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- 动作定义 -->
+    <record id="action_equipment_monitoring_data" model="ir.actions.act_window">
+        <field name="name">监测数据</field>
+        <field name="res_model">equipment.monitoring.data</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_monitoring_data_list"/>
+        <field name="search_view_id" ref="view_monitoring_data_search"/>
+        <field name="context">{'search_default_last_week': True}</field>
+    </record>
+
+    <record id="action_equipment_alert_rule" model="ir.actions.act_window">
+        <field name="name">告警规则</field>
+        <field name="res_model">equipment.alert.rule</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_alert_rule_list"/>
+    </record>
+
+    <record id="action_equipment_inspection" model="ir.actions.act_window">
+        <field name="name">设备巡检</field>
+        <field name="res_model">equipment.inspection</field>
+        <field name="view_mode">list,form,kanban</field>
+        <field name="view_id" ref="view_inspection_list"/>
+    </record>
+
+    <!-- 批量生成二维码动作 -->
+    <record id="action_batch_generate_qr_codes" model="ir.actions.act_window">
+        <field name="name">批量生成二维码</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="target">current</field>
+        <field name="context">{'search_default_qr_not_generated': True}</field>
+        <field name="domain">[('qr_code_generated', '=', False)]</field>
+    </record>
+
+    <!-- 二维码报告动作 -->
+    <record id="action_qr_code_reports" model="ir.actions.act_window">
+        <field name="name">二维码报告</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">list,form,pivot,graph</field>
+        <field name="domain">[('qr_code_generated', '=', True)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                没有已生成二维码的设备
+            </p>
+        </field>
+    </record>
+</odoo>

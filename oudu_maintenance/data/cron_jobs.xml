@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 监测数据归档任务 -->
+    <record id="cron_archive_monitoring_data" model="ir.cron">
+        <!-- 定时任务名称，表明是设备监测相关的旧数据（180 天前）归档任务 -->
+        <field name="name">[Equipment Monitoring] Archive Old Data (Older Than 180 Days)</field>
+        <!-- 关联的模型，这里是设备监测数据模型 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>
+        <!-- 任务执行方式为代码执行 -->
+        <field name="state">code</field>
+        <!-- 执行的代码，调用模型的 archive_old_data 方法并传入 180 作为参数 -->
+        <field name="code">model.archive_old_data(180)</field>
+        <!-- 任务执行间隔的数量 -->
+        <field name="interval_number">1</field>
+        <!-- 任务执行间隔类型为天 -->
+        <field name="interval_type">days</field>
+        <!-- 任务处于激活状态 -->
+        <field name="active" eval="True"/>
+        <!-- 任务优先级为 10 -->
+        <field name="priority">10</field>
+        <!-- 任务下一次执行时间，为当前时间加 1 天后的 02:00:00 -->
+        <field name="nextcall" eval="(DateTime.now() + timedelta(days=1)).strftime('%Y-%m-%d 02:00:00')"/>
+    </record>
+
+    <!-- 索引优化任务（每周执行） -->
+    <record id="cron_optimize_indexes" model="ir.cron">
+        <!-- 定时任务名称，表明是设备监测相关的监测数据索引优化任务 -->
+        <field name="name">[Equipment Monitoring] Optimize Monitoring Data Indexes</field>
+        <!-- 关联的模型，这里是设备监测数据模型 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>
+        <!-- 任务执行方式为代码执行 -->
+        <field name="state">code</field>
+        <!-- 执行的代码，调用模型的 optimize_indexes 方法 -->
+        <field name="code">model.optimize_indexes()</field>
+        <!-- 任务执行间隔的数量 -->
+        <field name="interval_number">1</field>
+        <!-- 任务执行间隔类型为周 -->
+        <field name="interval_type">weeks</field>
+        <!-- 任务处于激活状态 -->
+        <field name="active" eval="True"/>
+        <!-- 任务优先级为 20 -->
+        <field name="priority">20</field>
+        <!-- 任务下一次执行时间，为当前时间加 1 周后的 03:00:00 -->
+        <field name="nextcall" eval="(DateTime.now() + timedelta(weeks=1)).strftime('%Y-%m-%d 03:00:00')"/>
+    </record>
+</odoo>

@@ -33,30 +33,23 @@
             'python': ['qrcode', 'PIL'],
         },
     'data': [
-        'data/maintenance_data.xml',
-        'data/ir_sequence.xml',
+        'data/cron_archiving.xml',
+        'data/cron_jobs.xml',
+        'data/demo_data.xml',
         'security/ir.model.access.csv',
-        # 'views/maintenance_equipment.xml',
-        'views/maintenance_equipment_status_history_view.xml',
-        'views/maintenance_equipment_category_views.xml',
-        'views/maintenance_work_order.xml',
-        'views/maintenance_work_order_history.xml',
-        'views/maintenance_equipment_barcode.xml',
-        'views/maintenance_equipment_inspection.xml',
-        'wizards/maintenance_inspection_wizard_views.xml',
-        'report/report_equipment_barcode.xml',
-        'report/report_data.xml',
-        # 'views/maintenance_equipment_inspection_item.xml',
-        # 'views/maintenance_equipment_repair.xml',
-        # 'views/maintenance_equipment_maintenance.xml',
+        'views/maintenance_extension_views.xml',
+        'report/equipment_reports.xml',  # 添加报表文件
+        'views/report_views.xml',
         'views/menu_views.xml',
-        'views/menu_hide_views.xml',
     ],
+    'demo': [
+            'data/demo_data.xml',
+        ],
     'assets': {
         'web.assets_backend': [
             # 'oudu_maintenance/static/src/js/barcode_scanner.js',
             # 'oudu_maintenance/static/src/xml/barcode_template.xml',
-            'oudu_maintenance/static/src/css/qrcode_style.css',
+            # 'oudu_maintenance/static/src/css/qrcode_style.css',
             # 'oudu_maintenance/static/src/js/barcode_handler.js'
             # 'oudu_maintenance/static/src/js/instascan.min.js',
             # 'oudu_maintenance/static/src/css/qr_scanner.css',
@@ -67,4 +60,5 @@
     'application': True,
     'auto_install': False,
     "license": "AGPL-3",
+    'post_init_hook': 'post_init_hook',
 }

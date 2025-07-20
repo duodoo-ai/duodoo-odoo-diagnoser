@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--
+        设备ID索引 - 加速按设备查询监测数据
+        用途：优化根据设备筛选监测数据的查询性能
+    -->
+    <record id="monitoring_data_index_equipment" model="ir.model.index">
+        <field name="name">monitoring_data_equipment_index</field>  <!-- 索引名称 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>  <!-- 模型引用 -->
+        <field name="field_name">equipment_id</field>  <!-- 索引字段 -->
+        <field name="index_type">btree</field>  <!-- 索引类型：B树索引 -->
+    </record>
+
+    <!--
+        时间戳索引 - 加速按时间范围查询监测数据
+        用途：优化按时间范围筛选监测数据的查询性能
+    -->
+    <record id="monitoring_data_index_timestamp" model="ir.model.index">
+        <field name="name">monitoring_data_timestamp_index</field>  <!-- 索引名称 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>  <!-- 模型引用 -->
+        <field name="field_name">timestamp</field>  <!-- 索引字段 -->
+        <field name="index_type">btree</field>  <!-- 索引类型：B树索引 -->
+    </record>
+
+    <!--
+        复合索引 - 设备+时间戳组合索引
+        用途：优化同时按设备和时间范围查询的复合查询性能
+    -->
+    <record id="monitoring_data_index_equipment_timestamp" model="ir.model.index">
+        <field name="name">monitoring_data_equipment_timestamp_index</field>  <!-- 索引名称 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>  <!-- 模型引用 -->
+        <field name="field_name" eval="['equipment_id', 'timestamp']"/>  <!-- 复合索引字段 -->
+        <field name="index_type">btree</field>  <!-- 索引类型：B树索引 -->
+    </record>
+
+    <!--
+        归档状态索引 - 加速按激活状态查询
+        用途：优化筛选激活或归档记录的查询性能
+    -->
+    <record id="monitoring_data_index_active" model="ir.model.index">
+        <field name="name">monitoring_data_active_index</field>  <!-- 索引名称 -->
+        <field name="model_id" ref="model_equipment_monitoring_data"/>  <!-- 模型引用 -->
+        <field name="field_name">active</field>  <!-- 索引字段 -->
+        <field name="index_type">btree</field>  <!-- 索引类型：B树索引 -->
+    </record>
+</odoo>

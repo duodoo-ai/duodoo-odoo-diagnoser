@@ -1,116 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <!--大模块，设备管理-->
-    <menuitem
-            id="menu_maintenance_root"
-            name="Equipment Management"
-            web_icon="oudu_maintenance,static/description/icon.png"
-            sequence="246">
-        <!--子模块，子菜单菜单-->
-<!--        <menuitem-->
-<!--            id="menu_equipment_form_meu"-->
-<!--            name="Equipment"-->
-<!--            action="open_hr_equipment_action_custom"-->
-<!--            sequence="5"/>-->
-        <!-- 定义菜单项 -->
-        <menuitem
-            id="maintenance_equipment_barcode_menu"
-            name="Equipment Barcode"
-            action="maintenance_equipment_barcode_action"
-            sequence="40"/>
-        <menuitem
-            id="maintenance_equipment_status_history_menu"
-            name="Equipment Status History"
-            action="maintenance_equipment_status_history_action"
-            sequence="50"
-            />
-        <!--子模块，设置子菜单-->
-        <menuitem
-            id="menu_maintenance_equipment_configuration_meu"
-            name="Configuration"
-            sequence="100">
-            <menuitem
-                id="menu_maintenance_cat"
-                name="Equipment Categories"
-                action="maintenance.hr_equipment_category_action"
-                sequence="12"/>
-            <menuitem
-                id="maintenance_menu_config_activity_type_meu"
-                name="Activity Types"
-                action="maintenance.mail_activity_type_action_config_maintenance"
-                sequence="1500"/>
-        </menuitem>
-        <!--子模块，设置子菜单-->
-        <menuitem
-            id="menu_m_reports_meu"
-            name="Reporting"
-            sequence="25">
-            <menuitem
-                id="menu_m_reports_oee_sub"
-                name="Overall Equipment Effectiveness (OEE)"
-                groups="maintenance.group_equipment_manager,base.group_user"
-                sequence="1"/>
-            <menuitem
-                id="menu_m_reports_losses_sub"
-                name="Losses Analysis"
-                groups="maintenance.group_equipment_manager,base.group_user"
-                sequence="2"/>
-        </menuitem>
-    </menuitem>
+    <data>
+        <!-- 设备管理主菜单 -->
+        <menuitem id="menu_equipment_management_root"
+                  name="Equipment Management"
+                  web_icon="oudu_maintenance,static/description/icon.png"
+                  sequence="246"/>
 
+        <!-- 二维码管理菜单 -->
+        <menuitem id="menu_qr_management"
+                  name="QR Code Management"
+                  parent="menu_equipment_management_root"
+                  sequence="10"/>
 
-    <!--大模块，工单管理-->
-    <menuitem
-        id="menu_maintain_root"
-        name="Maintenance Work Order"
-        web_icon="oudu_maintenance,static/description/icon_worder.png"
-        sequence="248">
-        <menuitem
-            id="menu_m_request_form"
-            name="Maintenance Requests"
-            action="maintenance.hr_equipment_request_action"
-            sequence="1"/>
-        <menuitem
-            id="menu_m_request_calendar"
-            name="Maintenance Calendar"
-            action="maintenance.hr_equipment_request_action_cal"
-            sequence="2"/>
-        <!-- 维护工单 -->
-        <menuitem id="maintenance_work_order_menu"
-            name="Maintenance Work Orders"
-            action="maintenance_work_order_action"
-            sequence="30"/>
-        <!-- 定义菜单项 -->
-        <menuitem
-            id="maintenance_work_order_history_menu"
-            name="Maintenance Work Order History"
-            action="maintenance_work_order_history_action"
-            sequence="50"/>
-            <!-- 快捷菜单 -->
-        <menuitem id="menu_equipment_inspection"
-              name="Quick Inspection"
-              action="action_start_inspection"
-              sequence="40"/>
-        <!-- 菜单配置 -->
-        <menuitem id="menu_equipment_inspection_history"
-            name="Inspection History Record"
-            action="action_equipment_inspection"
-            sequence="60"/>
-        <!--子模块，设置子菜单-->
-        <menuitem
-            id="menu_maintenance_worker_configuration_meu"
-            name="Configuration"
-            sequence="100">
-            <menuitem
-                id="menu_maintenance_teams"
-                name="Maintenance Teams"
-                action="maintenance.maintenance_team_action_settings"
-                sequence="1"/>
-            <menuitem
-                id="menu_maintenance_stage_configuration"
-                name="Maintenance Stages"
-                action="maintenance.hr_equipment_stage_action"
-                sequence="3" />
-        </menuitem>
-    </menuitem>
+        <!-- 二维码管理下的菜单项 -->
+        <menuitem id="menu_qr_generation"
+                  name="Generate QR Codes"
+                  parent="menu_qr_management"
+                  action="action_batch_generate_qr_codes"
+                  sequence="10"/>
+
+        <menuitem id="menu_qr_reports"
+                  name="QR Code Reports"
+                  parent="menu_qr_management"
+                  action="action_qr_code_reports"
+                  sequence="20"/>
+
+        <!-- 监控中心菜单 -->
+        <menuitem id="menu_monitoring"
+                  name="Monitoring Center"
+                  parent="menu_equipment_management_root"
+                  sequence="50"/>
+
+        <!-- 监控中心下的菜单项 -->
+        <menuitem id="menu_monitoring_data"
+                  name="Monitoring Data"
+                  parent="menu_monitoring"
+                  action="action_equipment_monitoring_data"
+                  sequence="20"/>
+
+        <menuitem id="menu_alert_rules"
+                  name="Alert Rules"
+                  parent="menu_monitoring"
+                  action="action_equipment_alert_rule"
+                  sequence="20"/>
+
+        <menuitem id="menu_inspections"
+                  name="Inspection Records"
+                  parent="menu_monitoring"
+                  action="action_equipment_inspection"
+                  sequence="30"/>
+    </data>
 </odoo>
