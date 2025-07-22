@@ -40,6 +40,7 @@
         'views/maintenance_extension_views.xml',
         'report/equipment_reports.xml',  # 添加报表文件
         'views/report_views.xml',
+        'views/menu_hide_views.xml',
         'views/menu_views.xml',
     ],
     'demo': [
