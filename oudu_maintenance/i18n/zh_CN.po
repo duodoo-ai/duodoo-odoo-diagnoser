@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 09:24+0000\n"
-"PO-Revision-Date: 2025-07-17 09:24+0000\n"
+"POT-Creation-Date: 2025-07-21 02:02+0000\n"
+"PO-Revision-Date: 2025-07-21 02:02+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,14 +16,38 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
-msgid "<span>Model: </span>"
-msgstr "<span>型号：</span>"
+#: model:ir.actions.report,print_report_name:oudu_maintenance.action_equipment_qr_report
+msgid "'设备二维码_' + object.name + '.pdf'"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,print_report_name:oudu_maintenance.action_equipment_qr_report_batch
+msgid "'设备二维码批量打印_' + datetime.datetime.now().strftime('%Y%m%d%H%M') + '.pdf'"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid ""
+"<i class=\"fa fa-exclamation-triangle me-2\"/>\n"
+"                        以下数据显示最近30天的监测记录"
+msgstr ""
 
 #. module: oudu_maintenance
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
-msgid "<span>Serial No: </span>"
-msgstr "<span>序列号：</span>"
+msgid "<span>型号: </span>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
+msgid "<span>序列号: </span>"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid ""
+"<strong style=\"display: block; margin-bottom: 8px; color: "
+"#0a58ca;\">使用说明</strong>"
+msgstr ""
 
 #. module: oudu_maintenance
 #: model:ir.model.fields.selection,name:oudu_maintenance.selection__equipment_alert_rule__parameter__acceleration_env1
@@ -32,9 +56,6 @@ msgstr "加速度包络1"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__acceleration_env1
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Acceleration Envelope 1 (g)"
 msgstr "加速度包络1 (g)"
 
@@ -45,9 +66,6 @@ msgstr "加速度包络2"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__acceleration_env2
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Acceleration Envelope 2 (g)"
 msgstr "加速度包络2 (g)"
 
@@ -58,10 +76,8 @@ msgid "Active"
 msgstr "活跃"
 
 #. module: oudu_maintenance
-#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_alert_rule
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__alert_rule_ids
 #: model:ir.ui.menu,name:oudu_maintenance.menu_alert_rules
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Alert Rules"
 msgstr "报警规则"
 
@@ -71,20 +87,9 @@ msgid "Archive Date"
 msgstr "归档日期"
 
 #. module: oudu_maintenance
-#: model:ir.actions.act_window,name:oudu_maintenance.action_batch_generate_qr_codes
-msgid "Batch Generate QR Codes"
-msgstr "批量生成二维码"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__bearing_type
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Bearing Type"
 msgstr "轴承类型"
-
-#. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-msgid "Category"
-msgstr "分类"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment__equipment_category
@@ -93,8 +98,6 @@ msgstr "设备分类"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__condition
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Condition"
 msgstr "触发条件"
 
@@ -125,14 +128,8 @@ msgstr "纠正性维护"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__coupling_type
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Coupling Type"
 msgstr "联轴器类型"
-
-#. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-msgid "Create Maintenance Request"
-msgstr "创建维护请求"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__create_uid
@@ -177,8 +174,6 @@ msgstr "显示名称"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__drive_type
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Drive Type"
 msgstr "驱动类型"
 
@@ -189,7 +184,6 @@ msgstr "电气维护组"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__electrical_params
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Electrical Parameters"
 msgstr "电气参数"
 
@@ -212,14 +206,6 @@ msgstr "等于"
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__equipment_id
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__equipment_id
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__equipment_id
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
 msgid "Equipment"
 msgstr "设备"
 
@@ -230,10 +216,6 @@ msgstr "设备报警规则"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__equipment_category
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_qr_equipment_tree
 msgid "Equipment Category"
 msgstr "设备分类"
@@ -244,12 +226,7 @@ msgid "Equipment Inspection Record"
 msgstr "设备检查记录"
 
 #. module: oudu_maintenance
-#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_inspection
-msgid "Equipment Inspections"
-msgstr "设备检查项"
-
-#. module: oudu_maintenance
-#: model:ir.ui.menu,name:oudu_maintenance.menu_maintenance_root
+#: model:ir.ui.menu,name:oudu_maintenance.menu_equipment_management_root
 msgid "Equipment Management"
 msgstr "设备管理"
 
@@ -280,7 +257,6 @@ msgstr "设备温度"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__expected_life
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Expected Life (years)"
 msgstr "预期寿命(年)"
 
@@ -320,20 +296,15 @@ msgid "High"
 msgstr "高"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
-msgid "High Temperature"
-msgstr "高温警报"
-
-#. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
-msgid "High Vibration"
-msgstr "高振动警报"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__id
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__id
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__id
 msgid "ID"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr_batch
+msgid "ID:"
 msgstr ""
 
 #. module: oudu_maintenance
@@ -368,9 +339,6 @@ msgstr "被检查设备"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__inspection_date
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Inspection Date"
 msgstr "检查日期"
 
@@ -382,7 +350,6 @@ msgstr "检查记录"
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__inspection_ids
 #: model:ir.ui.menu,name:oudu_maintenance.menu_inspections
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Inspection Records"
 msgstr "检查记录"
 
@@ -398,8 +365,6 @@ msgstr "检查结果"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__inspector_id
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Inspector"
 msgstr "检查员"
 
@@ -439,7 +404,6 @@ msgstr "低"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__lubrication_period
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Lubrication Period (days)"
 msgstr "润滑周期(天)"
 
@@ -456,8 +420,6 @@ msgstr "维护设备"
 #. module: oudu_maintenance
 #: model:ir.model,name:oudu_maintenance.model_maintenance_request
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__request_id
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Maintenance Request"
 msgstr "维护请求"
 
@@ -487,11 +449,8 @@ msgid "Monitoring Center"
 msgstr "监控中心"
 
 #. module: oudu_maintenance
-#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_monitoring_data
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__monitoring_data_ids
 #: model:ir.ui.menu,name:oudu_maintenance.menu_monitoring_data
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Monitoring Data"
 msgstr "监控数据"
 
@@ -507,7 +466,6 @@ msgstr "电机类设备"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__motor_power
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Motor Power (kW)"
 msgstr "电机功率(千瓦)"
 
@@ -522,23 +480,12 @@ msgid "Name of alert rule"
 msgstr "报警规则名称"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-msgid "Needs Maintenance"
-msgstr "需要维护"
-
-#. module: oudu_maintenance
-#: model_terms:ir.actions.act_window,help:oudu_maintenance.action_qr_code_reports
-msgid "No equipment with generated QR codes."
-msgstr "没有已生成二维码的设备"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields,help:oudu_maintenance.field_maintenance_equipment__rated_speed
 msgid "Nominal operating speed"
 msgstr "额定运行速度"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__notes
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
 msgid "Notes"
 msgstr "备注"
 
@@ -554,8 +501,6 @@ msgstr "PLC控制系统 #001"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__parameter
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Parameter"
 msgstr "监控参数"
 
@@ -590,24 +535,17 @@ msgid "Preventive Maintenance"
 msgstr "预防性维护"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-msgid "Print QR Code"
-msgstr "打印二维码"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__equipment_category__protocol
 msgid "Protocol"
 msgstr "协议设备"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__qr_code
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_qr_equipment_tree
 msgid "QR Code"
 msgstr "二维码"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_qr_equipment_tree
 msgid "QR Code Generated"
 msgstr "二维码已生成"
@@ -618,14 +556,12 @@ msgid "QR Code Management"
 msgstr "二维码管理"
 
 #. module: oudu_maintenance
-#: model:ir.actions.act_window,name:oudu_maintenance.action_qr_code_reports
 #: model:ir.ui.menu,name:oudu_maintenance.menu_qr_reports
 msgid "QR Code Reports"
 msgstr "二维码报告"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__qr_code_generated
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
 msgid "QR Generated"
 msgstr "二维码生成状态"
 
@@ -636,15 +572,11 @@ msgstr "用于设备识别的二维码"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__rated_speed
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 msgid "Rated Speed (RPM)"
 msgstr "额定转速(RPM)"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__name
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Reference"
 msgstr "参考编号"
 
@@ -661,9 +593,6 @@ msgstr "继电器设备"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_inspection__result
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
 msgid "Result"
 msgstr "结果"
 
@@ -674,28 +603,13 @@ msgstr "转速"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__rotation_speed
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Rotation Speed (RPM)"
 msgstr "转速(RPM)"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-msgid "Rule Conditions"
-msgstr "规则条件"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__name
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Rule Name"
 msgstr "规则名称"
-
-#. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
-msgid "Scan QR Code"
-msgstr "扫描二维码"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields.selection,name:oudu_maintenance.selection__maintenance_equipment__status__scrapped
@@ -723,19 +637,12 @@ msgid "Serial"
 msgstr "串口设备"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-msgid "Serial No"
-msgstr "序列号"
-
-#. module: oudu_maintenance
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_qr_equipment_tree_extended
 msgid "Serial Number"
 msgstr "序列号"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__severity
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Severity"
 msgstr "严重等级"
 
@@ -746,18 +653,12 @@ msgstr "严重级别"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__status
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
 #: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_qr_equipment_tree
 msgid "Status"
 msgstr "状态"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_maintenance_equipment__technical_data
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
 msgid "Technical Data"
 msgstr "技术数据"
 
@@ -773,9 +674,6 @@ msgstr "温度"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__temperature
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Temperature (°C)"
 msgstr "温度(°C)"
 
@@ -786,8 +684,6 @@ msgstr "温度传感器 #001"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_alert_rule__threshold
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
 msgid "Threshold"
 msgstr "阈值"
 
@@ -798,9 +694,6 @@ msgstr "阈值数值"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__timestamp
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
 msgid "Timestamp"
 msgstr "时间戳"
 
@@ -825,25 +718,12 @@ msgid "Under Maintenance"
 msgstr "维护中"
 
 #. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
-msgid "Vibration Alert"
-msgstr "振动警报"
-
-#. module: oudu_maintenance
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-msgid "Vibration Data"
-msgstr "振动数据"
-
-#. module: oudu_maintenance
 #: model:ir.model.fields.selection,name:oudu_maintenance.selection__equipment_alert_rule__parameter__vibration_velocity
 msgid "Vibration Velocity"
 msgstr "振动速度"
 
 #. module: oudu_maintenance
 #: model:ir.model.fields,field_description:oudu_maintenance.field_equipment_monitoring_data__vibration_velocity
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
-#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
 msgid "Vibration Velocity (mm/s)"
 msgstr "振动速度(mm/s)"
 
@@ -861,3 +741,397 @@ msgstr "[设备监控] 归档旧数据（超过180天）"
 #: model:ir.actions.server,name:oudu_maintenance.cron_optimize_indexes_ir_actions_server
 msgid "[Equipment Monitoring] Optimize Monitoring Data Indexes"
 msgstr "[设备监控] 优化监控数据索引"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "严重性"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_qr_code_reports
+msgid "二维码报告"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
+msgid "二维码生成状态"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "分类"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+msgid "创建维护请求"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "加速度包络1(g)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "加速度包络2(g)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "参数"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "参考编号"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_alert_rule
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "告警规则"
+msgstr "报警规则"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+msgid "备注"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "实时监测数据"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "巡检记录"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "已生成二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "序列号"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr
+msgid "序列号:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "打印二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "打印功能支持单个或批量打印二维码标签"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr_batch
+msgid "打印日期:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
+msgid "扫描二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "扫描二维码可快速访问设备详情页面"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "批量打印"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
+msgid "批量打印二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "批量打印可选择多个设备后进行操作"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_batch_generate_qr_codes
+msgid "批量生成二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "技术数据"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "振动告警"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+msgid "振动数据"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "振动速度(mm/s)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "时间"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
+msgid "时间戳"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "未生成二维码时请点击\"生成二维码\"按钮"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "机械参数"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "条件"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "检查员"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "检查日期"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.actions.act_window,help:oudu_maintenance.action_qr_code_reports
+msgid "没有已生成二维码的设备"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "润滑周期(天)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "温度(°C)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "状态"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "生成二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr
+msgid "生成日期:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "电机功率(kW)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "电气参数"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_monitoring_data
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "监测数据"
+msgstr "监控数据"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "结果"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "维护参数"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+msgid "维护请求"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "联轴器类型"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "规则名称"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+msgid "规则条件"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_kanban
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_inspection_list
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
+msgid "设备"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr
+msgid "设备ID:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr
+msgid "设备二维码"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,name:oudu_maintenance.action_equipment_qr_report
+msgid "设备二维码打印"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.report,name:oudu_maintenance.action_equipment_qr_report_batch
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.report_equipment_qr_batch
+msgid "设备二维码批量打印"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_kanban_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_list_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "设备分类"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model:ir.actions.act_window,name:oudu_maintenance.action_equipment_inspection
+msgid "设备巡检"
+msgstr "设备检查项"
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "设备识别码:"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_list
+msgid "转速(RPM)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "轴承类型"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "输入电气参数详细信息..."
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_form
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_alert_rule_list
+msgid "阈值"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+msgid "需要维护"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "预期寿命(年)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "额定转速(RPM)"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_equipment_search_extended
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_maintenance_equipment_form_inherit
+msgid "驱动类型"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
+msgid "高振动"
+msgstr ""
+
+#. module: oudu_maintenance
+#: model_terms:ir.ui.view,arch_db:oudu_maintenance.view_monitoring_data_search
+msgid "高温"
+msgstr ""
