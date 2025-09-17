@@ -14,7 +14,7 @@ _logger = logging.getLogger(__name__)
 from . import models
 
 
-def _post_init_hook(cr, registry):
+def post_init_hook(cr, registry):
     from odoo import api, SUPERUSER_ID
 
     env = api.Environment(cr, SUPERUSER_ID, {})

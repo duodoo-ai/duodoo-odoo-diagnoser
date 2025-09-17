@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Odoo Core Extend(RTX)",
+    'name': "Odoo Core Extend (RTX)",
 
     'summary': """
         Basic modules of Odoo business
