@@ -31,23 +31,18 @@ export class ThemePanel extends Component {
         const old_theme = this.theme;
         this.state = useState({
             theme: session['theme'],
-            theme_has_changed: false,
+            need_refresh: false,
         });
 
         const theme = this.state.theme;
+        // console.log("theme", this.state.theme.lock_screen.theme,typeof this.state.theme.lock_screen.theme);
 
         onPatched(() => {
             // console.log("onPatched-----------theme", this.state.theme.main_submenu_position);
             // console.log("onPatched-----------old_theme", old_theme.main_submenu_position);
         });
         onRendered(() => {
-            // console.log("onRendered-----------theme", theme.views.list);
-            // console.log("onRendered-----------old_theme", old_theme.main_submenu_position);
-            // if (JSON.stringify(this.state.theme) !== JSON.stringify(old_theme)) {
-            //     this.state.theme_has_changed = true;
-            // } else {
-            //     this.state.theme_has_changed = false;
-            // }
+
         });
     }
 
@@ -125,6 +120,20 @@ export class ThemePanel extends Component {
             context: {
                 theme: {
                     theme_color: color.id,
+                },
+            },
+        });
+    }
+
+    //-------------------------
+    // 锁屏主题
+    //-------------------------
+    onChangeLockScreenTheme(ev) {
+        this.state.theme.lock_screen.theme = ev.target.value;
+        this.orm.call('res.users', 'set_user_theme', [this.user.userId], {
+            context: {
+                theme: {
+                    lock_screen_theme: ev.target.value,
                 },
             },
         });
@@ -231,7 +240,7 @@ export class ThemePanel extends Component {
             },
         });
     }
-    
+
     //-------------------------
     // 视图
     //-------------------------
@@ -262,7 +271,22 @@ export class ThemePanel extends Component {
         this.orm.call('res.users', 'set_user_theme', [this.user.userId], {
             context: {
                 theme: {
-                    list_rows_limit: ev.target.value,
+                    lock_screen_theme: ev.target.value,
+                },
+            },
+        });
+    }
+
+    // 视图-Form- 使用分割线调整表单大小
+    //-------------------------
+    onToggleFormUseDividerResizeSheet(state) {
+        this.state.theme.views.form.use_divider_resize_sheet = !state;
+        this.set_body_data();
+        this.orm.call('res.users', 'set_user_theme', [this.user.userId], {
+            context: {
+                theme: {
+                    form_use_divider_resize_sheet: !state,
+                    form_chatter_position: "1",
                 },
             },
         });
@@ -272,6 +296,7 @@ export class ThemePanel extends Component {
     //-------------------------
     onChangeChatterPosition(position) {
         this.state.theme.views.form.chatter.position = position.id;
+        this.set_body_data();
         this.orm.call('res.users', 'set_user_theme', [this.user.userId], {
             context: {
                 theme: {
@@ -342,6 +367,17 @@ export class ThemePanel extends Component {
         } else {
             return false;
         }
+    }
+
+    set_body_data() {
+        document.body.setAttribute(
+			"data-form-use-divider",
+			this.state.theme.views.form.use_divider_resize_sheet
+		); // 使用分割线调整表单大小
+        document.body.setAttribute(
+			"data-chatter-chatter-position",
+			this.state.theme.views.form.chatter.position
+		); // 聊天位置
     }
 }
 

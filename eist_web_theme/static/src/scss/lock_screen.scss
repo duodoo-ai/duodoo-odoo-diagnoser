@@ -1,0 +1,256 @@
+@font-face {
+    font-family: "password";
+    src: url('/eist_web_theme/static/fonts/password/password.ttf') format("truetype");
+}
+
+
+.lock-screen-page {
+    &.lock-screen-theme-1 {
+        background-color: lighten(#364150, 8%) !important;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+
+        .lock-screen-content {
+            margin: 90px auto 30px auto;
+            width: 450px;
+
+            .lock-screen-content-logo {
+                text-align: center;
+                margin-bottom: 15px;
+            }
+
+            .lock-screen-content-body {
+                width: 100%;
+                margin-top: 50px;
+                background-color: #3a4554;
+
+                &-lock-head {
+                    display: block;
+                    background-color: #323d4b;
+                    text-align: center;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    font-size: 22px;
+                    font-weight: 400;
+                    color: #4db3a5;
+                }
+
+                &-lock-body {
+                    display: block;
+                    margin: 35px;
+                    overflow: hidden;
+
+                    .lock-cont {
+                        display: table;
+                        table-layout: fixed;
+
+                        .lock-item {
+                            display: table-cell;
+                            vertical-align: middle;
+
+                            .lock-avatar-block {
+                                display: block;
+                                width: 100%;
+                                text-align: center;
+                                margin-bottom: 10px;
+
+                                .lock-user-avatar {
+                                    margin-top: 20px;
+                                    border-radius: 50% !important;
+                                }
+                            }
+
+                            &.lock-item-full {
+                                width: 100%;
+
+                                .lock-form {
+                                    padding-left: 40px;
+
+                                    h4 {
+                                        margin-top: 0;
+                                        color: #dbe2ea;
+                                        font-size: 18px;
+                                        font-weight: 400;
+                                        display: inline-block;
+                                    }
+
+                                    .form-group {
+                                        margin-top: 20px;
+                                        margin-bottom: 15px;
+
+                                        .form-control {
+                                            background-color: #303a48;
+                                            border: none;
+                                            width: 220px;
+                                            height: 40px;
+                                            color: #697687;
+                                        }
+
+                                        input[name="password"] {
+                                            font-size: smaller;
+
+                                            &:focus {
+                                                background-color: #2b3542;
+                                            }
+
+                                            &::placeholder {
+                                                color: #556376;
+                                            }
+                                        }
+                                    }
+
+                                    .form-actions .btn {
+                                        width: 100%;
+                                        margin-bottom: 20px;
+                                    }
+
+                                    .btn.red:not(.btn-outline) {
+                                        color: #fff;
+                                        background-color: #e7505a;
+                                        border-color: #e7505a;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &-lock-bottom {
+                    display: block;
+                    background-color: #323d4b;
+                    text-align: center;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+
+                    a {
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #638cac;
+                    }
+
+                    a:hover {
+                        color: #7ba2c0;
+                    }
+
+                }
+            }
+
+            .lock-screen-content-footer {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 40px;
+                color: #5f6e83;
+
+                &-copyright,
+                &-version {
+                    color: #8090a5;
+                }
+            }
+        }
+    }
+
+    &.lock-screen-theme-2 {
+        background-color: #ddd !important;
+        padding: 0 !important;
+        margin: 0 !important;
+
+        .lock-screen-content {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            margin-top: -160px;
+            margin-left: -260px;
+
+            .lock-screen-content-logo {
+                margin-bottom: 15px;
+            }
+
+            .lock-screen-content-body {
+                width: 510px;
+                padding: 15px;
+                background: url("/eist_web_theme/static/img/lock/bg-white-lock.png") repeat;
+
+                &:before,
+                &:after {
+                    display: table;
+                    content: "";
+                    line-height: 0;
+                }
+
+                &:after {
+                    clear: both;
+                }
+
+                .lock-user-avatar {
+                    float: left;
+                    width: 200px;
+                    height: auto;
+                }
+
+                .lock-user-info {
+                    padding-left: 10px;
+                    float: right;
+                    width: 280px;
+
+                    h1 {
+                        margin-top: -5px;
+                        font-weight: 300;
+                        color: #fff;
+                        font-size: 28px;
+                        line-height: 32px;
+                        margin-bottom: 5px;
+                    }
+
+                    .email {
+                        color: #eee;
+                        display: block;
+                        font-size: 18px;
+                        line-height: 18px;
+                        margin-bottom: 10px;
+                    }
+
+                    .locked {
+                        color: #4db3a5;
+                        font-size: 14px;
+                        line-height: 14px;
+                        font-style: normal;
+                    }
+
+                    form {
+                        margin: 14px 0;
+
+                        input[name="password"] {
+                            font-size: smaller;
+                        }
+                    }
+
+                    input {
+                        background: #fff;
+                    }
+
+                    .relogin {
+                        margin-top: 10px;
+
+                        a {
+                            cursor: pointer;
+                            color: #e1e1e1;
+                        }
+                    }
+
+
+                }
+            }
+
+            .lock-screen-content-footer {
+                margin-top: 10px;
+                text-align: left !important;
+                font-size: 12px;
+                color: #eaeaea;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}

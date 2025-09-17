@@ -29,20 +29,6 @@ class Http(models.AbstractModel):
         session_info = super(Http, self).session_info()
 
         # -------------------------------------------------------
-        # 品牌
-        # -------------------------------------------------------
-        system_name = ICP.get_param("eist_erp.system_name", default="EIST ERP")
-        display_company_name = ICP.get_param("eist_erp.display_company_name", default=False)
-
-        if type(display_company_name) == str:
-            display_company_name = bool(ast.literal_eval(display_company_name))
-
-        session_info["brand"] = {
-            "system_name": system_name,
-            "display_company_name": display_company_name,
-        }
-
-        # -------------------------------------------------------
         # 语言
         # -------------------------------------------------------
         session_info["user_langs"] = {}
@@ -80,7 +66,6 @@ class Http(models.AbstractModel):
         documentation_url = current_user_company.doc_url
         enable_support = current_user_company.enable_support
         support_url = current_user_company.support_url
-
 
         session_info["user_menu_items"].update(
             {
@@ -136,16 +121,13 @@ class Http(models.AbstractModel):
         # 主题 3. Theme color
         # -------------------------------------------------------
         theme_color_list = [
-            {"id": 0, "name": _("Light")},
-            {"id": 1, "name": _("Red")},
-            {"id": 2, "name": _("Orange")},
-            {"id": 3, "name": _("Yellow")},
-            {"id": 4, "name": _("Green")},
-            {"id": 5, "name": _("Blue")},
-            {"id": 6, "name": _("Indigo")},
-            {"id": 7, "name": _("Lavender")},
-            {"id": 8, "name": _("Mauve")},
-            {"id": 9, "name": _("Grey")},
+            {"id": 0, "name": _("Default")},  # 默认
+            {"id": 1, "name": _("Sky")},  # 晴空
+            {"id": 2, "name": _("Bamboo")},  # 青竹
+            {"id": 3, "name": _("Turquoise")},  # 松石
+            {"id": 4, "name": _("Sakura")},  # 花火
+            {"id": 5, "name": _("Ink")},  # 沉墨
+            {"id": 6, "name": _("Lavender")},  # 菖蒲
         ]
 
         # 主题 6. Views
@@ -169,8 +151,6 @@ class Http(models.AbstractModel):
         for key, value in views_list_rows_limit_dict.items():
             row = {"value": int(key), "name": value}
             views_list_rows_limit_list.append(row)
-
-
 
         theme = {}
         theme_id = current_user.theme_id
@@ -224,10 +204,11 @@ class Http(models.AbstractModel):
                     },
                 },
                 "form": {
+                    "use_divider_resize_sheet": theme_id.form_use_divider_resize_sheet,
                     "chatter": {
                         "position": int(theme_id.form_chatter_position),
                         "positions": views_form_chatter_position_list,
-                    }
+                    },
                 },
             },
             # 9.Footer
@@ -242,6 +223,25 @@ class Http(models.AbstractModel):
                 "display_version": theme_id.display_footer_version,
             },
         }
+
+        # 锁屏方式
+        lock_screen_themes = []
+        lock_screen_themes_dict = dict(
+            self.env["res.theme"].fields_get("lock_screen_theme")["lock_screen_theme"]["selection"]
+        )
+        for key, value in lock_screen_themes_dict.items():
+            lock_screen_theme = {"value": int(key), "name": value}
+            lock_screen_themes.append(lock_screen_theme)
+        theme.update(
+            {
+                "lock_screen": {
+                    "enable": theme_id.enable_lock_screen,
+                    "theme": theme_id.lock_screen_theme,
+                    "themes": lock_screen_themes,
+                }
+            }
+        )
+
         session_info.update({"theme": json.loads(json.dumps(theme))})
 
         return session_info

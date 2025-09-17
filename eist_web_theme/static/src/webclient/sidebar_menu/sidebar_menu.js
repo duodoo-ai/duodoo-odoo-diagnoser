@@ -40,7 +40,7 @@ const {
  **| │ │ │ ┌ <span class="menu-icon"> ------------------------------------------------┐ │ │ │ │
  **| │ │ │ │  <i class="fa fa-home"></i>                                              │ │ │ │ │
  **| │ │ │ └ </span> -----------------------------------------------------------------┘ │ │ │ │
- **| │ │ │ - <span class="menu-lable"/>                                                 │ │ │ │
+ **| │ │ │ - <span class="menu-label"/>                                                 │ │ │ │
  **| │ │ └ <a/> ------------------------------------------------------------------------┘ │ │ │
  **| │ └ </h2> ---------------------------------------------------------------------------┘ │ │
  **| │ ┌ <div class="accordion-collapse collapse" id="menu-collapse-1"  折叠的选项 --------┐ │ │
@@ -77,15 +77,20 @@ export class EistErpSidebarMenu extends Component {
 			theme: session["theme"],
 		});
 
-		if (this.currentAction) {
+		// 确保menuData存在且有childrenTree属性
+		if (this.menuData && this.menuData.childrenTree && this.currentAction) {
 			this.getCurrentMenuItem(this.currentAction);
 		}
 
-		this.current_cid = session.user_companies.current_company;
-		this.state.theme.sidebar.is_minimized = false;
+		this.current_cid = session.user_companies ? session.user_companies.current_company : null;
 
-		if (this.state.theme.sidebar.default_minimized) {
-			this.state.theme.sidebar.is_minimized = true;
+		// 确保theme和sidebar属性存在
+		if (this.state.theme && this.state.theme.sidebar) {
+			this.state.theme.sidebar.is_minimized = false;
+
+			if (this.state.theme.sidebar.default_minimized) {
+				this.state.theme.sidebar.is_minimized = true;
+			}
 		}
 
 		useBus(this.env.bus, "SIDEBAR-SUBMENU:TOGGLED", (menu) =>
@@ -100,6 +105,12 @@ export class EistErpSidebarMenu extends Component {
 	}
 
 	onMounted() {
+		// 确保SidebarMenuRef.el存在
+		if (!this.SidebarMenuRef.el) {
+			console.warn("SidebarMenuRef.el is not available during onMounted");
+			return;
+		}
+
 		this.el = this.SidebarMenuRef.el;
 
 		// 定义挂载组件时应该执行的代码的钩子
@@ -110,7 +121,7 @@ export class EistErpSidebarMenu extends Component {
 
 		// let current_action = Number(this.router.current.hash.menu_id || 0);
 		const currentController = this.actionService.currentController;
-		let actionId = currentController && currentController.action.id;
+		let actionId = currentController && currentController.action ? currentController.action.id : null;
 		// if (menuId === 0 && !actionId) {
 		// 	//TODO 使用 ir.actions.todo 跳转菜单后，侧边栏无法正确菜单状态问题
 		// }
@@ -124,9 +135,12 @@ export class EistErpSidebarMenu extends Component {
 
 	initializeMenu() {
 		// 初始化菜单
-		if (this.state.currentActionID) {
+		if (this.state.currentActionID && this.el) {
 			const menuPaths = this.getParentMenuPath(this.state.currentMenuId);
 
+			// if (this.state.theme.sidebar.default_minimized) {
+			// 	return;
+			// }
 			// 展开菜单
 			menuPaths.forEach((menuId) => {
 				const menu_condition = sprintf(
@@ -134,14 +148,18 @@ export class EistErpSidebarMenu extends Component {
 					menuId
 				);
 				const menuEl = this.el.querySelector(menu_condition);
-				menuEl.classList.add("show");
+				if (menuEl) {
+					menuEl.classList.add("show");
+				}
 
 				const link_condition = sprintf(
 					'a.accordion-button[data-menu="%s"]',
 					menuId
 				);
 				const linkEl = this.el.querySelector(link_condition);
-				linkEl.classList.add("active");
+				if (linkEl) {
+					linkEl.classList.add("active");
+				}
 			});
 		}
 	}
@@ -150,12 +168,17 @@ export class EistErpSidebarMenu extends Component {
 	允许加载子菜单
 	*/
 	allowLoadAppSubMenus() {
+		// 确保state和theme存在
+		if (!this.state || !this.state.theme) {
+			return true;
+		}
+
 		if (
 			this.state.theme.sidebar_default_minimized &&
 			!this.state.theme.sidebar.hover_maximize
 		) {
 			return false;
-		} else if (this.state.theme.main.submenu.position === 1) {
+		} else if (this.state.theme.main && this.state.theme.main.submenu && this.state.theme.main.submenu.position === 1) {
 			return false;
 		} else {
 			return true;
@@ -163,30 +186,55 @@ export class EistErpSidebarMenu extends Component {
 	}
 
 	currentAppSections(appid) {
-		return this.menuService.getMenuAsTree(appid).childrenTree || [];
+		try {
+			const menuTree = this.menuService.getMenuAsTree(appid);
+			return menuTree && menuTree.childrenTree ? menuTree.childrenTree : [];
+		} catch (error) {
+			console.warn("Error getting app sections:", error);
+			return [];
+		}
 	}
 
 	currentMenuSections(menuid) {
-		return this.menuService.getMenuAsTree(menuid).childrenTree || [];
+		try {
+			const menuTree = this.menuService.getMenuAsTree(menuid);
+			return menuTree && menuTree.childrenTree ? menuTree.childrenTree : [];
+		} catch (error) {
+			console.warn("Error getting menu sections:", error);
+			return [];
+		}
 	}
 
 	getMenuItemHref(payload) {
+		// 确保payload存在
+		if (!payload) {
+			return "#";
+		}
+
 		if (payload.actionPath) {
 			return "/odoo/" + payload.actionPath;
 		} else if (payload.actionID) {
 			return "action-" + payload.actionID;
-		} else {
+		} else if (payload.id) {
 			const submenu = this.currentMenuSections(payload.id);
-			if (submenu.length > 0) {
+			if (submenu.length > 0 && submenu[0].actionID) {
 				return "action-" + submenu[0].actionID;
 			} else {
 				return "#";
 			}
+		} else {
+			return "#";
 		}
 	}
 
 	getChildrenMenu(menuid) {
-		return this.menuService.getMenuAsTree(menuid).children || [];
+		try {
+			const menuTree = this.menuService.getMenuAsTree(menuid);
+			return menuTree && menuTree.children ? menuTree.children : [];
+		} catch (error) {
+			console.warn("Error getting children menu:", error);
+			return [];
+		}
 	}
 
 	/*
@@ -194,17 +242,29 @@ export class EistErpSidebarMenu extends Component {
 	*/
 	deepFindChild(arr, key, value) {
 		let result = [];
+
+		// 确保arr是数组且不为空
+		if (!Array.isArray(arr) || arr.length === 0) {
+			return result;
+		}
+
 		function searchInObject(obj) {
+			// 确保obj是对象且不为null
+			if (!obj || typeof obj !== "object") {
+				return;
+			}
+
 			for (let prop in obj) {
 				if (obj.hasOwnProperty(prop)) {
 					if (prop === key && obj[prop] === value) {
 						result.push(obj);
-					} else if (typeof obj[prop] === "object") {
+					} else if (typeof obj[prop] === "object" && obj[prop] !== null) {
 						searchInObject(obj[prop]);
 					}
 				}
 			}
 		}
+
 		arr.forEach((item) => {
 			searchInObject(item);
 		});
@@ -230,11 +290,18 @@ export class EistErpSidebarMenu extends Component {
 				action
 			);
 		}
-		if (menu.length > 1) {
-			menu = menu[1];
+
+		// 确保menu是数组且不为空
+		if (Array.isArray(menu) && menu.length > 0) {
+			if (menu.length > 1) {
+				menu = menu[1];
+			} else {
+				menu = menu[0];
+			}
 		} else {
-			menu = menu[0];
+			menu = null;
 		}
+
 		// console.log("获取当前菜单-------------", menu);
 		if (menu) {
 			this.state.currentMenuId = menu.id;
@@ -247,8 +314,18 @@ export class EistErpSidebarMenu extends Component {
 		let path = [];
 		let found = false;
 
+		// 确保data是数组且不为空
+		if (!Array.isArray(data) || data.length === 0) {
+			return path;
+		}
+
 		function traverse(current, ancestors) {
 			if (found) return; // 如果已经找到目标元素，停止遍历
+
+			// 确保current是对象且不为null
+			if (!current || typeof current !== "object") {
+				return;
+			}
 
 			if (current.id === targetId) {
 				found = true;
@@ -256,7 +333,7 @@ export class EistErpSidebarMenu extends Component {
 				return;
 			}
 
-			if (current.children) {
+			if (current.children && Array.isArray(current.children)) {
 				for (const child of current.children) {
 					traverse(child, [...ancestors, current]);
 				}
@@ -275,11 +352,23 @@ export class EistErpSidebarMenu extends Component {
 	*/
 	getParentMenuPath(menuID) {
 		let paths = [];
+
+		// 检查this.el是否存在，如果不存在则返回空数组
+		if (!this.el) {
+			return paths;
+		}
+
 		const menu_condition = sprintf(
 			'a.accordion-button[data-menu="%s"]',
 			menuID
 		);
 		const menuEl = this.el.querySelector(menu_condition);
+
+		// 检查menuEl是否存在，如果不存在则返回空数组
+		if (!menuEl) {
+			return paths;
+		}
+
 		const allMenuEl = this.el.querySelectorAll("div.accordion-collapse");
 		const allMenuElArray = Array.from(allMenuEl);
 		allMenuElArray.forEach((item) => {
@@ -295,19 +384,26 @@ export class EistErpSidebarMenu extends Component {
 
 	toggle_sidebar_submenu(menu) {
 		// TODO
+		// 确保menu参数存在且有正确的结构
+		if (!menu || !menu.detail || !menu.detail.menu || !menu.detail.menu.id) {
+			return;
+		}
+
 		const currentMenuId = menu["detail"]["menu"]["id"];
 		if (this.state.currentMenuId !== currentMenuId) {
 			this.currentMenuId = currentMenuId;
 			this.state.currentMenuId = currentMenuId;
 
-			this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
-				item.classList.remove("show");
-			});
+			if (this.el) {
+				this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
+					item.classList.remove("show");
+				});
+			}
 			// let $menu = this.$el.find(
 			// 	"a#menu-link-" + this.state.currentMenuId
 			// );
 			// $menu.addClass("active");
-			if (!this.state.theme.sidebar.is_minimized) {
+			if (this.state.theme && this.state.theme.sidebar && !this.state.theme.sidebar.is_minimized) {
 				// $menu.parents(".collapse").addClass("show");
 			}
 			// 'active' 菜单滚动到可视区域
@@ -324,20 +420,25 @@ export class EistErpSidebarMenu extends Component {
 		// 侧边栏展开或收起
 		// ----------------------------
 		if (
+			!this.state.theme ||
+			!this.state.theme.sidebar ||
 			!this.state.theme.sidebar.is_minimized ||
-			!this.state.theme.sidebar.hover_maximize
+			!this.state.theme.sidebar.hover_maximize ||
+			!this.el
 		) {
 			return;
 		}
 		if (state) {
 			// 滑入侧边栏时，展开侧边栏
-			this.el.classList.add("sidebar-maximize");
+			if (this.el) {
+				this.el.classList.add("sidebar-maximize");
+			}
 
 			// 展开应用菜单
 			const appCollapseEl = this.el.querySelector(
 				"#menu-collapse-" + this.state.currentAppId
 			);
-			console.log(appCollapseEl)
+			// console.log(appCollapseEl)
 			if (appCollapseEl) {
 				appCollapseEl.classList.remove("collapse");
 				appCollapseEl.classList.add("show");
@@ -351,22 +452,28 @@ export class EistErpSidebarMenu extends Component {
 					menuId
 				);
 				const menuEl = this.el.querySelector(menu_condition);
-				menuEl.classList.add("show");
+				if (menuEl) {
+					menuEl.classList.add("show");
+				}
 
 				const link_condition = sprintf(
 					'a.accordion-button[data-menu="%s"]',
 					menuId
 				);
 				const linkEl = this.el.querySelector(link_condition);
-				linkEl.classList.add("active");
+				if (linkEl) {
+					linkEl.classList.add("active");
+				}
 			});
 		} else {
 			// 滑出侧边栏时，收起侧边栏
-			this.el.classList.remove("sidebar-maximize");
-			this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
-				item.classList.remove("show");
-				item.classList.add("collapse");
-			});
+			if (this.el) {
+				this.el.classList.remove("sidebar-maximize");
+				this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
+					item.classList.remove("show");
+					item.classList.add("collapse");
+				});
+			}
 		}
 	}
 
@@ -378,16 +485,19 @@ export class EistErpSidebarMenu extends Component {
 	_showToggleSideMenuButton(target) {
 		// console.log("鼠标划过logo", target);
 
-		if (!this.state.theme.sidebar.show_minimize_button) {
+		if (!this.state.theme || !this.state.theme.sidebar || !this.state.theme.sidebar.show_minimize_button || !this.el) {
 			return;
 		}
 		const logoEl = target.closest(".o_sidebar_menu_brand_logo");
 
-		if (this.state.theme.sidebar.is_minimized) {
-			this.el
-				.querySelector("button.o_sidebar_menu_toggler")
-				.classList.remove("o_hidden");
-			logoEl.classList.add("o_hidden");
+		if (this.state.theme && this.state.theme.sidebar && this.state.theme.sidebar.is_minimized) {
+			const togglerButton = this.el.querySelector("button.o_sidebar_menu_toggler");
+			if (togglerButton) {
+				togglerButton.classList.remove("o_hidden");
+			}
+			if (logoEl) {
+				logoEl.classList.add("o_hidden");
+			}
 		}
 	}
 
@@ -398,10 +508,15 @@ export class EistErpSidebarMenu extends Component {
 	*/
 	_hideToggleSideMenuButton(target) {
 		// console.log("鼠标离开切换按钮", target);
+		if (!this.el) {
+			return;
+		}
 		const logoEl = this.el.querySelector(".o_sidebar_menu_brand_logo");
-		if (this.state.theme.sidebar.is_minimized) {
+		if (this.state.theme && this.state.theme.sidebar && this.state.theme.sidebar.is_minimized) {
 			target.classList.add("o_hidden");
-			logoEl.classList.remove("o_hidden");
+			if (logoEl) {
+				logoEl.classList.remove("o_hidden");
+			}
 		}
 	}
 
@@ -413,10 +528,16 @@ export class EistErpSidebarMenu extends Component {
 		this.state.theme.sidebar.default_minimized =
 			this.state.theme.sidebar.is_minimized;
 
-		if (!this.state.theme.sidebar.is_minimized) {
+		if (!this.el) {
+			return;
+		}
+
+		if (this.state.theme && this.state.theme.sidebar && !this.state.theme.sidebar.is_minimized) {
 			// 处理LOGO
 			const logoEl = this.el.querySelector(".o_sidebar_menu_brand_logo");
-			logoEl.classList.remove("o_hidden");
+			if (logoEl) {
+				logoEl.classList.remove("o_hidden");
+			}
 
 			// 处理菜单
 			// 展开应用菜单
@@ -436,25 +557,36 @@ export class EistErpSidebarMenu extends Component {
 					menuId
 				);
 				const menuEl = this.el.querySelector(menu_condition);
-				menuEl.classList.add("show");
+				if (menuEl) {
+					menuEl.classList.add("show");
+				}
 
 				const link_condition = sprintf(
 					'a.accordion-button[data-menu="%s"]',
 					menuId
 				);
 				const linkEl = this.el.querySelector(link_condition);
-				linkEl.classList.add("active");
+				if (linkEl) {
+					linkEl.classList.add("active");
+				}
 			});
 		} else {
-			this.el.classList.remove("sidebar-maximize");
-			this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
-				item.classList.remove("show");
-				item.classList.add("collapse");
-			});
+			if (this.el) {
+				this.el.classList.remove("sidebar-maximize");
+				this.el.querySelectorAll(".accordion-collapse").forEach((item) => {
+					item.classList.remove("show");
+					item.classList.add("collapse");
+				});
+			}
 		}
 	}
 
 	_openMenu(ev, menu) {
+		// 检查SidebarMenuRef.el是否存在
+		if (!this.SidebarMenuRef.el) {
+			return;
+		}
+
 		// 移除所有的 'active'
 		let allMenu =
 			this.SidebarMenuRef.el.querySelectorAll(".accordion-button");
@@ -467,10 +599,12 @@ export class EistErpSidebarMenu extends Component {
 			const close_btn = this.SidebarMenuRef.el.querySelector(
 				"#o_sidenav_mobile_close"
 			);
-			close_btn.click();
+			if (close_btn) {
+				close_btn.click();
+			}
 		}
 
-		if (menu) {
+		if (menu && menu.appID && menu.id) {
 			// 应用菜单
 			const appID = menu.appID;
 			const menuID = menu.id;
@@ -478,23 +612,33 @@ export class EistErpSidebarMenu extends Component {
 			const app_menu = this.SidebarMenuRef.el.querySelector(
 				"a#menu-link-" + appID
 			);
-			app_menu.classList.add("active");
+			if (app_menu) {
+				app_menu.classList.add("active");
+			}
+
 			const app_collapse = this.SidebarMenuRef.el.querySelector(
 				"div#menu-collapse-" + appID
 			);
 			if (
+				!this.state.theme || !this.state.theme.sidebar ||
 				!this.state.theme.sidebar.is_minimized ||
 				!this.state.theme.sidebar.hover_maximize
 			) {
-				app_collapse.classList.add("show");
+				if (app_collapse) {
+					app_collapse.classList.add("show");
+				}
 
 				// 子菜单
 				const sub_menu = this.SidebarMenuRef.el.querySelector(
 					"a#menu-link-" + menuID
 				);
-				sub_menu.classList.add("active");
+				if (sub_menu) {
+					sub_menu.classList.add("active");
+				}
 			} else {
-				app_collapse.classList.remove("show");
+				if (app_collapse) {
+					app_collapse.classList.remove("show");
+				}
 			}
 			this.state.currentMenuId = menuID;
 			return this.menuService.selectMenu(menu);
@@ -505,7 +649,14 @@ export class EistErpSidebarMenu extends Component {
 		// 获取应用下的子菜单图标
 		// 5级子菜单的图标，应该够使用了，不够请自行添加
 		let icon = "";
-		switch (level) {
+
+		// 确保level是数字
+		const levelNum = parseInt(level);
+		if (isNaN(levelNum)) {
+			return "fa fa-square-o";
+		}
+
+		switch (levelNum) {
 			case 1:
 				icon = "fa fa-circle";
 				break;

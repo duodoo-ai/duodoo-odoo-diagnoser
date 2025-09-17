@@ -1,16 +1,21 @@
 /** @odoo-module **/
 
+import { _t } from "@web/core/l10n/translation";
 import { sprintf } from "@web/core/utils/strings";
 import { WebClient } from "@web/webclient/webclient";
 import { useService } from "@web/core/utils/hooks";
 import { router, routerBus } from "@web/core/browser/router";
+import { browser } from "@web/core/browser/browser";
 import { session } from "@web/session";
+import { cookie as cookieManager } from "@web/core/browser/cookie";
 import { EistErpNavBar } from "./navbar/navbar";
 import { EistErpSidebarMenu } from "./sidebar_menu/sidebar_menu";
 import { EistErpFooter } from "./footer/footer";
+import { rpc } from "@web/core/network/rpc";
+import { user } from '@web/core/user';
 
 import { Component, onMounted, onPatched, onWillStart, useExternalListener, useState } from "@odoo/owl";
-import { browser } from "@web/core/browser/browser";
+
 
 export class WebClientEistErp extends WebClient {
 	static components = {
@@ -28,6 +33,12 @@ export class WebClientEistErp extends WebClient {
 		this.dm = useService("drawer_menu");
 		this.title = useService("title");
 		this.actionService = useService("action");
+		this.notification = useService('notification');
+		this.busService = this.env.services.bus_service;
+
+		this.busService.subscribe('lock_screen', (data) => {
+			this.lockScreen(data);
+		});
 
 
 		// const currentMenuId = Number(this.router.current.hash.menu_id || 0);
@@ -38,32 +49,7 @@ export class WebClientEistErp extends WebClient {
 			hasDrawerMenu: this.dm.hasDrawerMenu,
 		});
 
-
-
-		// console.log("WebClientEistErp setup state",this.state.theme.main.app_load_method);
-
-		// 设置品牌
-		let system_name = session.brand.system_name;
-		var current_company_name;
-		const display_company_name = session.brand.display_company_name;
-		if (display_company_name) {
-			let allowed_companies = session.user_companies.allowed_companies; // 允许访问的公司
-			let current_company_id = session.user_companies.current_company; // 当前公司 ID
-			current_company_name = getCurrentCompanyName(); //当前公司名称
-			function getCurrentCompanyName() {
-				for (var key in allowed_companies) {
-					let company = allowed_companies[key];
-					if (company.id === current_company_id) {
-						return company.name;
-					}
-				}
-			}
-			system_name = sprintf("%s - %s", current_company_name, system_name);
-			// console.log(this.actionService.currentController )
-			// this.title.setParts({ one: current_company_name, two: system_name, three: this.actionService.currentController }); //设置标题
-		}
-		this.title.setParts({ zopenerp: system_name }); //设置标题
-
+		// console.log("默认的主题颜色", this.state.theme.color.default);
 
 		// 主题
 		this.state.theme.sidebarMinimize = false;
@@ -86,6 +72,8 @@ export class WebClientEistErp extends WebClient {
 	}
 
 	set_body_data() {
+		this.toggleThemeColor(this.state.theme.color.default);
+
 		this.el.setAttribute(
 			"data-theme-color",
 			this.state.theme.color.default
@@ -119,6 +107,16 @@ export class WebClientEistErp extends WebClient {
 			this.state.theme.sidebar.hover_maximize
 		); // 鼠标悬停是否最大化
 
+		this.el.setAttribute(
+			"data-form-use-divider",
+			this.state.theme.views.form.use_divider_resize_sheet
+		); // 使用分割线调整表单大小
+
+		this.el.setAttribute(
+			"data-chatter-chatter-position",
+			this.state.theme.views.form.chatter.position
+		); // 聊天位置
+
 		// 页脚
 		this.el.setAttribute(
 			"data-display-footer",
@@ -130,6 +128,49 @@ export class WebClientEistErp extends WebClient {
 		super._loadDefaultApp();
 		if (this.state.theme.main.app_load_method.default === "3") {
 			return this.dm.toggle(true);
+		}
+	}
+
+	toggleThemeColor(color) {
+		if (cookieManager.get("color_scheme") !== "dark") {
+			// 移除所有主题相关的类名
+			const themeClasses = Array.from(this.el.classList)
+				.filter(className => className.match(/^o_web_client_theme_colore_\d+$/));
+			this.el.classList.remove(...themeClasses);
+
+			// 添加新的主题类名
+			this.el.classList.add(`o_web_client_theme_colore_${color}`);
+
+			// 更新状态
+			this.state.theme.color.default = color;
+		}
+	}
+
+	async lockScreen(data) {
+		console.log("收到的数据", data);
+		const lock_screen_info = {
+			"href": window.location.href, //完整URL
+			"host": window.location.host, //主机名
+			"pathname": window.location.pathname, //路径名
+			"search": window.location.search, //查询字符串
+			"hash": window.location.hash, //锚点（“#”后面的分段）
+		};
+		if (data.lock_screen_status) {
+			const result = await rpc("/web/session/lockscreen_info", {
+				uid: user.userId,
+				lock_screen_info: lock_screen_info,
+			});
+			if (result["state"]) {
+				browser.location.href = "/web/session/lock";
+			} else {
+				const title = _t("Operation failed!");
+				const message = sprintf("%s,%s", _t("Failed to lock the screen!"), result["msg"]);
+				this.notification.add(message, {
+					title: title,
+					type: 'warning',
+					sticky: false,
+				});
+			}
 		}
 	}
 }

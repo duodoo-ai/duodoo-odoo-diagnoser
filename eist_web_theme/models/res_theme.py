@@ -121,6 +121,10 @@ class ResTheme(models.Model):
         default="80",
         required=True,
     )
+
+    form_use_divider_resize_sheet = fields.Boolean(
+        string="Use divider resize the form sheet", default=False
+    )  # 使用分割线调整表单大小
     form_chatter_position = fields.Selection(
         string="Form Chatter Position",
         selection=[
@@ -130,7 +134,7 @@ class ResTheme(models.Model):
         default="1",
         required=True,
         readonly=False,
-    )
+    )  # 聊天窗口位置
 
     # 9.Footer
     # ------------------------------------------------------------
@@ -141,13 +145,26 @@ class ResTheme(models.Model):
         string="Display Footer Support", default=True, help="Show support link in footer"
     )
     display_footer_copyright = fields.Boolean(
-        string="Display Footer Copyright", default=False, help="Show copyright in footer"
+        string="Display Footer Copyright", default=True, help="Show copyright in footer"
     )
     display_footer_doc = fields.Boolean(
-        string="Display Footer Documentation", default=False, help="Show Documentation in footer"
+        string="Display Footer Documentation", default=True, help="Show Documentation in footer"
     )
     display_footer_version = fields.Boolean(
-        string="Display Footer Version", default=False, help="Show Version in footer"
+        string="Display Footer Version", default=True, help="Show Version in footer"
+    )
+
+    # 登录和锁屏
+    # ------------------------------------------------------------
+    enable_lock_screen = fields.Boolean(
+        "Enable lock screen",
+        default=False,
+    )
+    lock_screen_theme = fields.Selection(
+        string="Lock screen theme",
+        selection=[("1", "Theme 1"), ("2", "Theme 2")],
+        required=True,
+        default="2",
     )
 
     @api.depends("company_id", "user_id", "type")

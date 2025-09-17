@@ -1,0 +1,22 @@
+.o_web_client {
+    &[data-chatter-chatter-position="2"] {
+        .o_action_manager {
+            .o_form_view {
+                overflow: visible !important;
+
+                .o_form_view_container {
+                    .o_content {
+                        .o_form_renderer {
+                            .o_form_sheet_bg {
+                                max-width: 100% !important;
+                            }
+                            .o-mail-ChatterContainer, .o-mail-Form-chatter {
+                                width: 100% !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

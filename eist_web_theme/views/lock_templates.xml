@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="eist_web_theme.lock_layout" name="Lock Layout" inherit_id="web.layout" primary="True">
+        <xpath expr="//head/meta[last()]" position="after">
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        </xpath>
+
+        <xpath expr="//head/link[last()]" position="after">
+            <link rel="preload" href="/web/static/src/libs/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin=""/>
+            <t t-call-assets="web.assets_frontend" t-js="false"/>
+        </xpath>
+
+        <xpath expr="//head/script[@id='web.layout.odooscript']" position="after">
+            <script t-nocache="Session information should always be up to date." type="text/javascript">
+            odoo.__session_info__ = <t t-out="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>
+;
+            if (!/(^|;\s)tz=/.test(document.cookie)) {
+                const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                document.cookie = `tz=${userTZ}; path=/`;
+            }
+            </script>
+            <t t-call-assets="web.assets_frontend_minimal" t-css="false" defer_load="True"/>
+            <t t-call="web.conditional_assets_tests">
+                <t t-set="ignore_missing_deps" t-value="True"/>
+            </t>
+            <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+        </xpath>
+
+        <xpath expr="//t[@t-out='0']" position="replace">
+            <div class="lock-screen-content">
+                <t t-out="0"/>
+                <div class="modal fade" id="logout_modal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="logout_modal_title">
+										Log out
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="text-danger fs-6">
+                                    <p>
+                                        Are you sure you want to log off the current user:
+                                    </p>
+                                    <p>
+                                        <span class="fw-bold" t-esc="lock_user.name" />
+                                        ?
+                                    </p>
+                                    <p>
+                                        Will cause the current user's work content to be lost!
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="confirm_logout_button" type="button" class="btn btn-primary">
+                                    Confirm
+                                </button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="eist_web_theme.lock1" name="Lock Layout 1">
+        <t t-call="eist_web_theme.lock_layout">
+            <t t-set="body_classname" t-value="'lock-screen-page lock-screen-theme-1'"/>
+            <div class="lock-screen-content-logo">
+                <a class="brand">
+                    <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="logo" />
+                </a>
+            </div>
+            <div class="lock-screen-content-body rounded-0">
+                <div class="lock-screen-content-body-lock-head">Locked</div>
+                <div class="lock-screen-content-body-lock-body">
+                    <div class="lock-cont">
+                        <div class="lock-item">
+                            <div class="pull-left lock-avatar-block">
+                                <img class="lock-user-avatar" t-attf-src="/web/image/res.users/#{lock_user.id}/avatar_128" alt="" />
+                            </div>
+                        </div>
+                        <div class="lock-item lock-item-full">
+                            <form class="lock-form pull-left" role="form">
+                                <h4>
+                                    <t t-esc="lock_user.name" />
+                                </h4>
+                                <div id="error_alert" class="row px-2 alert-line d-none">
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <span class="error" />
+                                    </div>
+                                </div>
+                                <div id="message_alert" class="row px-2 alert-line d-none">
+                                    <div class="alert alert-success alert-dismissible fade show" role="status">
+                                        <span class="message" />
+                                    </div>
+                                </div>
+                                <input type="hidden" name="login" t-att-value="lock_user.login" />
+                                <input type="hidden" name="redirect" t-att-value="href" />
+                                <div class="form-group">
+                                    <input class="form-control rounded-0 placeholder-no-fix" maxlength="4096" disguising-password="" autocomplete="new-password" name="password" id="lock_password" placeholder="Password" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn red uppercase rounded-0 submit">Unlock</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="lock-screen-content-body-lock-bottom relogin">
+                    <a data-bs-toggle="modal" data-bs-target="#logout_modal">
+                        <span>Not</span>
+                        <t t-esc="lock_user.name" />
+                        <span>?</span>
+                    </a>
+                </div>
+            </div>
+            <div class="lock-screen-content-footer">
+                <div class="lock-screen-content-footer-copyright">
+                    <t t-out="copyright"/>
+                </div>
+                <div class="lock-screen-content-footer-version">
+                    <span t-out="system_name"/>
+                    <span t-out="version"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="eist_web_theme.lock2" name="Lock Layout 1">
+        <t t-call="eist_web_theme.lock_layout">
+            <t t-set="body_classname" t-value="'lock-screen-page lock-screen-theme-2'"/>
+            <div class="lock-screen-content-logo">
+                <a class="brand">
+                    <img t-attf-src="/web/binary/company_logo{{ '?dbname='+db if db else '' }}" alt="logo" />
+                </a>
+            </div>
+            <div class="lock-screen-content-body rounded-0">
+                <img class="lock-user-avatar" t-attf-src="/web/image/res.users/#{lock_user.id}/avatar_128" alt="" />
+                <div class="lock-user-info">
+                    <h1>
+                        <t t-esc="lock_user.name" />
+                    </h1>
+                    <span class="email">
+                        <t t-esc="lock_user.login" />
+                    </span>
+                    <span class="locked">Locked</span>
+                    <form class="form-inline" role="form">
+                        <div id="error_alert" class="row px-2 alert-line d-none">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span class="error" />
+                            </div>
+                        </div>
+                        <div id="message_alert" class="row px-2 alert-line d-none">
+                            <div class="alert alert-success alert-dismissible fade show" role="status">
+                                <span class="message" />
+                            </div>
+                        </div>
+                        <input type="hidden" name="login" t-att-value="lock_user.login" />
+                        <input type="hidden" name="redirect" t-att-value="href" />
+                        <div class="input-group input-medium">
+                            <input class="form-control rounded-0" maxlength="4096" disguising-password="" autocomplete="new-password" name="password" id="lock_password" placeholder="Password" autocorrect="off" autocapitalize="off" spellcheck="false" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-info rounded-0 submit">
+                                    <i class="fa fa-arrow-circle-right fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="relogin">
+                            <a data-bs-toggle="modal" data-bs-target="#logout_modal">
+                                <span>Not</span>
+                                <t t-esc="lock_user.name" />
+                                <span>?</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="lock-screen-content-footer">
+                <div class="lock-screen-content-footer-copyright">
+                    <t t-out="copyright"/>
+                </div>
+                <div class="lock-screen-content-footer-version">
+                    <span t-out="system_name"/>
+                    <span t-out="version"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

@@ -9,6 +9,8 @@ import { escape } from "@web/core/utils/strings";
 import { session } from "@web/session";
 import { browser } from "@web/core/browser/browser";
 import { sprintf } from "@web/core/utils/strings";
+import { user } from '@web/core/user';
+import { rpc } from "@web/core/network/rpc";
 const LockScreenInfoKey = "lockScreenInfo";
 
 /*******************************************************************************
@@ -38,7 +40,7 @@ function developerToolsItemSeparator() {
     let hide = false;
     if (show_debug) {
         hide = true;
-    }else {
+    } else {
         hide = true;
     }
     return {
@@ -103,7 +105,7 @@ function developerAssetsModeItem(env) {
     let hide = false;
     if (show_debug && isAssets) {
         hide = true;
-    }else {
+    } else {
         hide = true;
     }
 
@@ -132,7 +134,7 @@ function deactivateDeveloperModeItem(env) {
         } else {
             hide = true;
         }
-    }else {
+    } else {
         hide = true;
     }
     return {
@@ -166,51 +168,41 @@ function getLockScreenStatus(env) {
     if (env.isSmall) {
         return true;
     } else {
-        return !session["user_menu_items"].enable_lock_screen;
+        return !session["theme"]["lock_screen"]["enable"];
     }
 }
 
+//
+
 function lockScreenItem(env) {
-    const storage_mode = session.lock_screen_state_storage_mode;
     const lock_screen_info = {
-        href: window.location.href, //完整URL
-        host: window.location.host, //主机名
-        pathname: window.location.pathname, //路径名
-        search: window.location.search, //查询字符串
-        hash: window.location.hash, //锚点（“#”后面的分段）
+        "href": window.location.href, //完整URL
+        "host": window.location.host, //主机名
+        "pathname": window.location.pathname, //路径名
+        "search": window.location.search, //查询字符串
+        "hash": window.location.hash, //锚点（“#”后面的分段）
     };
-    const route = "/web/lock";
+    const route = "/web/session/lock";
     return {
         type: "item",
         id: "lock",
         description: _t("Lock Screen"),
         href: `${browser.location.origin}${route}`,
         callback: async () => {
-            alert("客官，此功能正在开发中，敬请期待！");
-            // const result = await env.services.rpc("/web/lockscreen", {
-            //     uid: env.services.user.userId,
-            //     lock_screen_info: lock_screen_info,
-            // });
-
+            // const result = await rpc("/web/session/lockscreen_info", {
+            const result = await rpc("/web/session/lock_user", {
+                uid: user.userId,
+                // lock_screen_info: lock_screen_info,
+            });
+            // console.log(result);
             // if (result["state"]) {
-            //     if (result["storage_mode"] === 1) {
-            //         // 1: 本地存储
-            //         localStorage.setItem(
-            //             LockScreenInfoKey,
-            //             JSON.stringify(lock_screen_info)
-            //         );
-            //     }
             //     browser.location.href = route;
             // } else {
-            //     const title = env._t("Operation failed!");
-            //     const message = _.str.sprintf(
-            //         "%s,%s",
-            //         env._t("Failed to lock the screen!"),
-            //         result["msg"]
-            //     );
+            //     const title = _t("Operation failed!");
+            //     const message = sprintf("%s,%s", _t("Failed to lock the screen!"), result["msg"]);
             //     env.services.notification.add(message, {
             //         title: title,
-            //         type: "warning",
+            //         type: 'warning',
             //         sticky: false,
             //     });
             // }

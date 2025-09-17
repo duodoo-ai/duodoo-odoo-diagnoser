@@ -27,6 +27,10 @@
                             <i class="bi bi-palette" style="font-size: 1.5rem;"/>
                         </button>
 
+                        <button t-if="state.theme.lock_screen.enable" class="nav-link" id="v-pills-lock-tab" data-bs-toggle="pill" data-bs-target="#v-pills-lock" type="button" role="tab" aria-controls="v-pills-lock" aria-selected="false">
+                            <i class="bi bi-house-lock" style="font-size: 1.5rem;"/>
+                        </button>
+
                         <button class="nav-link" id="v-pills-sidebar-tab" data-bs-toggle="pill" data-bs-target="#v-pills-sidebar" type="button" role="tab" aria-controls="v-pills-sidebar" aria-selected="false" t-if="state.theme.main.app_load_method.default==='1'">
                             <i class="bi bi-layout-sidebar" style="font-size: 1.5rem;"/>
                         </button>
@@ -115,6 +119,31 @@
                                         </li>
                                     </t>
                                 </ul>
+                            </div>
+                        </div>
+
+                        <div t-if="state.theme.lock_screen.enable" class="tab-pane fade" id="v-pills-lock" role="tabpanel" aria-labelledby="v-pills-lock-tab" tabindex="0">
+                            <h2>Lock screen</h2>
+                            <div class="theme-option">
+                                <div class="row w-100 mb8 d-flex justify-content-center gx-0">
+                                    <span class="col-6 col-form-label">Lock screen theme</span>
+                                    <div class="col-6">
+                                         <select class="form-select" t-on-change="(ev) => this.onChangeLockScreenTheme(ev)">
+                                            <t t-foreach="state.theme.lock_screen.themes" t-as="theme" t-key="theme_index">
+                                                <t t-if="theme.value==state.theme.lock_screen.theme">
+                                                    <option t-att-value="theme.value" selected="selected">
+                                                        <t t-esc="theme.name"/>
+                                                    </option>
+                                                </t>
+                                                <t t-else="">
+                                                    <option t-att-value="theme.value">
+                                                        <t t-esc="theme.name"/>
+                                                    </option>
+                                                </t>
+                                            </t>
+                                         </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -207,11 +236,23 @@
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
 
                             <h4>Form</h4>
                             <div class="theme-option">
+                                <span class="float-start">Use divider resize the form sheet</span>
+                                <ul class="list-group w-100">
+                                    <li t-attf-class="list-group-item border-0 d-flex justify-content-between align-items-start">
+                                        <div class="ms-2 me-auto">
+                                            <i t-attf-class="bi bi-layout-split {{state.theme.views.form.use_divider_resize_sheet ? 'text-success':''}}" style="font-size: 4rem; " />
+                                        </div>
+                                        <div class="float-end form-check form-switch form-control-lg" t-on-click.stop.prevent="() => this.onToggleFormUseDividerResizeSheet(state.theme.views.form.use_divider_resize_sheet)">
+                                            <input class="form-check-input" type="checkbox" role="switch" t-att-checked="state.theme.views.form.use_divider_resize_sheet" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="theme-option" t-if="!state.theme.views.form.use_divider_resize_sheet">
                                 <span class="float-start">Form Chatter Position</span>
                                 <ul class="list-group w-100">
                                     <li t-attf-class="list-group-item border-0 d-flex justify-content-between align-items-start" t-foreach="state.theme.views.form.chatter.positions" t-as="position" t-key="position.id">
@@ -273,19 +314,9 @@
                 </div>
             </div>
 
-            <div t-attf-class="o_theme_panel_footer sticky-bottom flex-wrap gap-1 {{state.theme_has_changed ? '':'o_hidden'}} " id="o_theme_panel_footer">
+            <div t-attf-class="o_theme_panel_footer sticky-bottom flex-wrap gap-1 {{state.need_refresh ? '':'o_hidden'}} " id="o_theme_panel_footer">
                 <div class="alert alert-info" role="alert">
-                    You need to save the settings to make the new theme effective!
-                </div>
-                <div class="d-flex justify-content-around">
-                    <button class="btn btn-success save" t-on-click="saveTheme">
-                        <i class="fa fa-floppy-o"/>
-                        <span class="ml8">Save</span>
-                    </button>
-                    <button class="btn btn-warning cancel" data-bs-dismiss="offcanvas" t-on-click.stop.prevent="() => this.closeThemePanel()">
-                        <i class="fa fa-times"/>
-                        <span class="ml8">Close</span>
-                    </button>
+                    You'll need to refresh your browser for the configuration to take effect!
                 </div>
             </div>
 

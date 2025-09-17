@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates>
+
+    <t t-name="eist_web_theme.lock_layout">
+    </t>
+
+    <t t-name="eist_web_theme.lock1">
+    </t>
+    
+    <t t-name="eist_web_theme.lock2">
+    </t>
+
+
+
+</templates>

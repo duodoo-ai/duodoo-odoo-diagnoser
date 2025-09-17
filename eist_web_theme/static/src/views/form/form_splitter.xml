@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="eist_web_theme.FormSplitter">
+        <div t-ref="splitter" t-attf-class="o_form_splitter #{display ? '' : 'd-none'}" t-on-mousedown="onMouseDown"/>
+    </t>
+
+</templates>

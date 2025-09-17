@@ -1,0 +1,150 @@
+最终res结构<t t-translation="off">
+    <div class="o_form_renderer" t-att-class="__comp__.props.class" t-attf-class="{{__comp__.props.record.isInEdition ? 'o_form_editable' : 'o_form_readonly'}} d-flex d-print-block {{ __comp__.uiService.size &lt; 6 ? &quot;flex-column&quot; : &quot;flex-nowrap h-100&quot; }} {{ __comp__.props.record.dirty ? 'o_form_dirty' : !__comp__.props.record.isNew ? 'o_form_saved' : '' }}" t-ref="compiled_view_root">
+        <div class="o_form_sheet_bg">
+            <div class="o_form_statusbar position-relative d-flex justify-content-between mb-0 mb-md-2 pb-2 pb-md-0">
+                <StatusBarButtons t-if="!__comp__.env.isSmall or __comp__.env.inDialog">
+                    <t t-set-slot="button_0" isVisible="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &lt;= 0 or sheet_id&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <ViewButton tag="`button`" record="__comp__.props.record" className="`oe_highlight o_expense_submit`" string="`创建报表`" clickParams="{&quot;name&quot;:&quot;action_submit_expenses&quot;,&quot;type&quot;:&quot;object&quot;}" attrs="{&quot;invisible&quot;:&quot;nb_attachment &lt;= 0 or sheet_id&quot;,&quot;data-hotkey&quot;:&quot;v&quot;}" t-if="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &lt;= 0 or sheet_id&quot;,__comp__.props.record.evalContextWithVirtualIds)" defaultRank="'btn-secondary'"/>
+                    </t>
+                    <t t-set-slot="button_1" isVisible="!__comp__.evaluateBooleanExpr(&quot;not sheet_id or nb_attachment &lt; 1&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <ViewButton tag="`button`" record="__comp__.props.record" className="`oe_highlight`" string="`查看报表`" clickParams="{&quot;name&quot;:&quot;action_view_sheet&quot;,&quot;type&quot;:&quot;object&quot;}" attrs="{&quot;invisible&quot;:&quot;not sheet_id or nb_attachment &lt; 1&quot;,&quot;data-hotkey&quot;:&quot;w&quot;}" t-if="!__comp__.evaluateBooleanExpr(&quot;not sheet_id or nb_attachment &lt; 1&quot;,__comp__.props.record.evalContextWithVirtualIds)" defaultRank="'btn-secondary'"/>
+                    </t>
+                    <t t-set-slot="button_2" isVisible="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &lt; 1&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <Widget record="__comp__.props.record" name="'attach_document'" widgetInfo="__comp__.props.archInfo.widgetNodes['widget_1']" t-if="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &lt; 1&quot;,__comp__.props.record.evalContextWithVirtualIds)"/>
+                    </t>
+                    <t t-set-slot="button_3" isVisible="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &gt;= 1&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <Widget record="__comp__.props.record" name="'attach_document'" widgetInfo="__comp__.props.archInfo.widgetNodes['widget_2']" t-if="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &gt;= 1&quot;,__comp__.props.record.evalContextWithVirtualIds)"/>
+                    </t>
+                    <t t-set-slot="button_4" isVisible="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &gt;= 1 or sheet_id&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <ViewButton tag="`button`" record="__comp__.props.record" className="`o_expense_submit`" string="`创建报表`" clickParams="{&quot;name&quot;:&quot;action_submit_expenses&quot;,&quot;type&quot;:&quot;object&quot;}" attrs="{&quot;invisible&quot;:&quot;nb_attachment &gt;= 1 or sheet_id&quot;,&quot;data-hotkey&quot;:&quot;v&quot;}" t-if="!__comp__.evaluateBooleanExpr(&quot;nb_attachment &gt;= 1 or sheet_id&quot;,__comp__.props.record.evalContextWithVirtualIds)" defaultRank="'btn-secondary'"/>
+                    </t>
+                    <t t-set-slot="button_5" isVisible="!__comp__.evaluateBooleanExpr(&quot;not sheet_id or nb_attachment &gt;= 1&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <ViewButton tag="`button`" record="__comp__.props.record" className="`oe_highlight`" string="`查看报表`" clickParams="{&quot;name&quot;:&quot;action_view_sheet&quot;,&quot;type&quot;:&quot;object&quot;}" attrs="{&quot;invisible&quot;:&quot;not sheet_id or nb_attachment &gt;= 1&quot;,&quot;data-hotkey&quot;:&quot;w&quot;}" t-if="!__comp__.evaluateBooleanExpr(&quot;not sheet_id or nb_attachment &gt;= 1&quot;,__comp__.props.record.evalContextWithVirtualIds)" defaultRank="'btn-secondary'"/>
+                    </t>
+                    <t t-set-slot="button_6" isVisible="!__comp__.evaluateBooleanExpr(&quot;sheet_id or product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                        <ViewButton tag="`button`" record="__comp__.props.record" className="``" string="`拆分费用`" clickParams="{&quot;name&quot;:&quot;action_split_wizard&quot;,&quot;type&quot;:&quot;object&quot;}" attrs="{&quot;invisible&quot;:&quot;sheet_id or product_has_cost&quot;}" t-if="!__comp__.evaluateBooleanExpr(&quot;sheet_id or product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" defaultRank="'btn-secondary'"/>
+                    </t>
+                </StatusBarButtons>
+                <Field id="'state_0'" name="'state'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['state_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'statusbar'" t-if="!__comp__.evaluateBooleanExpr(&quot;state == 'refused'&quot;,__comp__.props.record.evalContextWithVirtualIds)" showTooltip="true"/>
+                <Field id="'state_1'" name="'state'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['state_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'statusbar'" t-if="!__comp__.evaluateBooleanExpr(&quot;state != 'refused'&quot;,__comp__.props.record.evalContextWithVirtualIds)" showTooltip="true"/>
+            </div>
+            <div class="alert alert-warning oe_edit_only" role="alert" name="warning_duplicate_receipt_expense" t-if="!__comp__.evaluateBooleanExpr(&quot;not same_receipt_expense_ids&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                    一项                <ViewButton tag="`a`" record="__comp__.props.record" className="``" clickParams="{&quot;type&quot;:&quot;object&quot;,&quot;name&quot;:&quot;action_show_same_receipt_expense_ids&quot;}" attrs="{}">
+                    <t t-set-slot="contents">费用</t>
+                </ViewButton> 连通相同的收据，已经存在。
+            </div>
+            <div class="o_form_sheet position-relative">
+                <div class="oe_title">
+                    <FormLabel id="'name_0'" fieldName="'name'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['name_0']" className="&quot;&quot;" string="__comp__.props.record.fields['name'].string"/>
+                    <h1>
+                        <Field id="'name_0'" name="'name'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['name_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew"/>
+                    </h1>
+                </div>
+                <OuterGroup>
+                    <t t-set-slot="item_0" type="'item'" sequence="0" t-slot-scope="scope" isVisible="true" itemSpan="1">
+                        <InnerGroup class="scope &amp;&amp; scope.className">
+                            <t t-set-slot="item_0" type="'item'" sequence="0" t-slot-scope="scope" subType="'label'" isVisible="true" itemSpan="1">
+                                <FormLabel id="'product_id_0'" fieldName="'product_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['product_id_0']" className="&quot;&quot;" string="__comp__.props.record.fields['product_id'].string"/>
+                            </t>
+                            <t t-set-slot="item_1" type="'item'" sequence="1" t-slot-scope="scope" isVisible="true" itemSpan="1">
+                                <div t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <Field id="'product_id_0'" name="'product_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['product_id_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'w-100'"/>
+                                    <div class="fst-italic" t-if="!__comp__.evaluateBooleanExpr(&quot;not is_editable or not product_description or not product_id&quot;,__comp__.props.record.evalContextWithVirtualIds)">
+                                        <Field id="'product_description_0'" name="'product_description'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['product_description_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew"/>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-set-slot="item_2" type="'item'" sequence="2" t-slot-scope="scope" props="{id:'price_unit_1',fieldName:'price_unit',record:__comp__.props.record,string:__comp__.props.record.fields.price_unit.string,fieldInfo:__comp__.props.archInfo.fieldNodes['price_unit_1']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="!__comp__.evaluateBooleanExpr(&quot;not product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="2">
+                                <Field id="'price_unit_1'" name="'price_unit'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['price_unit_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'monetary'" class="scope &amp;&amp; scope.className"/>
+                            </t>
+                            <t t-set-slot="item_3" type="'item'" sequence="3" t-slot-scope="scope" subType="'label'" isVisible="!__comp__.evaluateBooleanExpr(&quot;not product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <FormLabel id="'quantity_0'" fieldName="'quantity'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['quantity_0']" className="&quot;&quot;" string="__comp__.props.record.fields['quantity'].string"/>
+                            </t>
+                            <t t-set-slot="item_4" type="'item'" sequence="4" t-slot-scope="scope" isVisible="!__comp__.evaluateBooleanExpr(&quot;not product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <div t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <div class="o_row">
+                                        <Field id="'quantity_0'" name="'quantity'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['quantity_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'oe_inline'"/>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-set-slot="item_5" type="'item'" sequence="5" t-slot-scope="scope" subType="'label'" isVisible="!__comp__.evaluateBooleanExpr(&quot;product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <FormLabel id="'total_amount_currency_0'" fieldName="'total_amount_currency'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['total_amount_currency_0']" className="&quot;&quot;" string="`总计`"/>
+                            </t>
+                            <t t-set-slot="item_6" type="'item'" sequence="6" t-slot-scope="scope" isVisible="!__comp__.evaluateBooleanExpr(&quot;product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <div class="o_row" t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <Field id="'total_amount_currency_0'" name="'total_amount_currency'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['total_amount_currency_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'monetary'" class="'oe_inline mw-50 me-0'"/>
+                                    <Field id="'currency_id_1'" name="'currency_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['currency_id_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'mw-25 ms-0'"/>
+                                    <span class="d-flex" t-if="!__comp__.evaluateBooleanExpr(&quot;tax_amount == 0&quot;,__comp__.props.record.evalContextWithVirtualIds)">（包括                                        <Field id="'tax_amount_1'" name="'tax_amount'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['tax_amount_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'mx-1'"/>
+ 税）</span>
+                                </div>
+                            </t>
+                            <t t-set-slot="item_7" type="'item'" sequence="7" t-slot-scope="scope" subType="'label'" isVisible="!__comp__.evaluateBooleanExpr(&quot;is_multiple_currency or not product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <FormLabel id="'total_amount_1'" fieldName="'total_amount'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['total_amount_1']" className="&quot;&quot;" string="`总计`"/>
+                            </t>
+                            <t t-set-slot="item_8" type="'item'" sequence="8" t-slot-scope="scope" subType="'label'" isVisible="!__comp__.evaluateBooleanExpr(&quot;not is_multiple_currency&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <FormLabel id="'total_amount_1'" fieldName="'total_amount'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['total_amount_1']" className="&quot;&quot;" string="``"/>
+                            </t>
+                            <t t-set-slot="item_9" type="'item'" sequence="9" t-slot-scope="scope" isVisible="!__comp__.evaluateBooleanExpr(&quot;not is_multiple_currency and not product_has_cost&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="1">
+                                <div class="o_row" t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <Field id="'total_amount_1'" name="'total_amount'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['total_amount_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'monetary'" class="'oe_inline'"/>
+                                    <Field id="'label_currency_rate_0'" name="'label_currency_rate'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['label_currency_rate_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'ps-0'"/>
+                                </div>
+                            </t>
+                            <t t-set-slot="item_10" type="'item'" sequence="10" t-slot-scope="scope" subType="'label'" isVisible="true" itemSpan="1">
+                                <FormLabel id="'tax_ids_0'" fieldName="'tax_ids'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['tax_ids_0']" className="&quot;&quot;" string="__comp__.props.record.fields['tax_ids'].string"/>
+                            </t>
+                            <t t-set-slot="item_11" type="'item'" sequence="11" t-slot-scope="scope" isVisible="true" itemSpan="1">
+                                <div class="o_row" t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <Field id="'tax_ids_0'" name="'tax_ids'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['tax_ids_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'many2many_tags'"/>
+                                    <Field id="'tax_amount_currency_0'" name="'tax_amount_currency'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['tax_amount_currency_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew"/>
+                                </div>
+                            </t>
+                            <t t-set-slot="item_12" type="'item'" sequence="12" t-slot-scope="scope" props="{id:'employee_id_0',fieldName:'employee_id',record:__comp__.props.record,string:__comp__.props.record.fields.employee_id.string,fieldInfo:__comp__.props.archInfo.fieldNodes['employee_id_0']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="true" itemSpan="2">
+                                <Field id="'employee_id_0'" name="'employee_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['employee_id_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'many2one_avatar_employee'" class="scope &amp;&amp; scope.className"/>
+                            </t>
+                            <t t-set-slot="item_13" type="'item'" sequence="13" t-slot-scope="scope" subType="'label'" isVisible="true" itemSpan="1">
+                                <FormLabel id="'payment_mode_0'" fieldName="'payment_mode'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['payment_mode_0']" className="&quot;&quot;" string="__comp__.props.record.fields['payment_mode'].string"/>
+                            </t>
+                            <t t-set-slot="item_14" type="'item'" sequence="14" t-slot-scope="scope" isVisible="true" itemSpan="1">
+                                <div id="payment_mode" t-attf-class="{{scope &amp;&amp; scope.className || &quot;&quot; }}">
+                                    <Field id="'payment_mode_0'" name="'payment_mode'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['payment_mode_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" type="'radio'"/>
+                                </div>
+                            </t>
+                        </InnerGroup>
+                    </t>
+                    <t t-set-slot="item_1" type="'item'" sequence="1" t-slot-scope="scope" isVisible="true" itemSpan="1">
+                        <InnerGroup class="scope &amp;&amp; scope.className">
+                            <t t-set-slot="item_0" type="'item'" sequence="0" t-slot-scope="scope" props="{id:'date_0',fieldName:'date',record:__comp__.props.record,string:__comp__.props.record.fields.date.string,fieldInfo:__comp__.props.archInfo.fieldNodes['date_0']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="true" itemSpan="2">
+                                <t t-set="addClass" t-value="scope &amp;&amp; scope.className"/>
+                                <Field id="'date_0'" name="'date'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['date_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="'w-50'+(addClass ? &quot; &quot; + addClass : &quot;&quot;)"/>
+                            </t>
+                            <t t-set-slot="item_1" type="'item'" sequence="1" t-slot-scope="scope" props="{id:'vendor_id_0',fieldName:'vendor_id',record:__comp__.props.record,string:__comp__.props.record.fields.vendor_id.string,fieldInfo:__comp__.props.archInfo.fieldNodes['vendor_id_0']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="!__comp__.evaluateBooleanExpr(&quot;payment_mode != 'company_account'&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="2">
+                                <Field id="'vendor_id_0'" name="'vendor_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['vendor_id_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="scope &amp;&amp; scope.className"/>
+                            </t>
+                            <t t-set-slot="item_2" type="'item'" sequence="2" t-slot-scope="scope" props="{id:'accounting_date_0',fieldName:'accounting_date',record:__comp__.props.record,string:__comp__.props.record.fields.accounting_date.string,fieldInfo:__comp__.props.archInfo.fieldNodes['accounting_date_0']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="!__comp__.evaluateBooleanExpr(&quot;not accounting_date or state not in ['approved', 'done']&quot;,__comp__.props.record.evalContextWithVirtualIds)" itemSpan="2">
+                                <Field id="'accounting_date_0'" name="'accounting_date'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['accounting_date_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="scope &amp;&amp; scope.className"/>
+                            </t>
+                            <t t-set-slot="item_3" type="'item'" sequence="3" t-slot-scope="scope" props="{id:'company_id_1',fieldName:'company_id',record:__comp__.props.record,string:__comp__.props.record.fields.company_id.string,fieldInfo:__comp__.props.archInfo.fieldNodes['company_id_1']}" Component="__comp__.constructor.components.FormLabel" subType="'item_component'" isVisible="true" itemSpan="2">
+                                <Field id="'company_id_1'" name="'company_id'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['company_id_1']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew" class="scope &amp;&amp; scope.className"/>
+                            </t>
+                        </InnerGroup>
+                    </t>
+                </OuterGroup>
+                <div>
+                    <Field id="'description_0'" name="'description'" record="__comp__.props.record" fieldInfo="__comp__.props.archInfo.fieldNodes['description_0']" readonly="__comp__.props.archInfo.activeActions?.edit === false and !__comp__.props.record.isNew"/>
+                </div>
+            </div>
+            <div class="o-mail-ChatterContainer o-mail-Form-chatter o-isInFormSheetBg w-auto" t-if="__comp__.mailLayout(true) == &quot;COMBO&quot;">
+                <t t-component="__comp__.mailComponents.Chatter" has_activities="__comp__.props.archInfo.has_activities" hasAttachmentPreview="true" hasParentReloadOnAttachmentsChanged="false" hasParentReloadOnFollowersUpdate="false" hasParentReloadOnMessagePosted="false" isAttachmentBoxVisibleInitially="false" threadId="__comp__.props.record.resId or undefined" threadModel="__comp__.props.record.resModel" webRecord="__comp__.props.record" saveRecord="__comp__.props.saveRecord" highlightMessageId="__comp__.highlightMessageId" isChatterAside="false" isInFormSheetBg="true"/>
+            </div>
+        </div>
+        <div class="o_attachment_preview o_center_attachment" t-if="__comp__.mailLayout(true).includes(&quot;COMBO&quot;)">
+            <t t-component="__comp__.mailComponents.AttachmentView" threadId="__comp__.props.record.resId or undefined" threadModel="__comp__.props.record.resModel"/>
+        </div>
+
+
+        <div class="o-mail-ChatterContainer o-mail-Form-chatter" t-if="!__comp__.env.inDialog and (![&quot;COMBO&quot;, &quot;NONE&quot;].includes(__comp__.mailLayout(true)))" t-attf-class="{{ [&quot;SIDE_CHATTER&quot;, &quot;EXTERNAL_COMBO_XXL&quot;].includes(__comp__.mailLayout(true)) ? &quot;o-aside w-print-100&quot; : &quot;mt-4 mt-md-0&quot; }}">
+            <t t-component="__comp__.mailComponents.Chatter" has_activities="__comp__.props.archInfo.has_activities" hasAttachmentPreview="true" hasParentReloadOnAttachmentsChanged="false" hasParentReloadOnFollowersUpdate="false" hasParentReloadOnMessagePosted="false" isAttachmentBoxVisibleInitially="false" threadId="__comp__.props.record.resId or undefined" threadModel="__comp__.props.record.resModel" webRecord="__comp__.props.record" saveRecord="__comp__.props.saveRecord" highlightMessageId="__comp__.highlightMessageId" isChatterAside="[&quot;SIDE_CHATTER&quot;, &quot;EXTERNAL_COMBO_XXL&quot;, &quot;EXTERNAL_COMBO&quot;].includes(__comp__.mailLayout(true))" isInFormSheetBg="[&quot;COMBO&quot;, &quot;BOTTOM_CHATTER&quot;].includes(__comp__.mailLayout(true))"/>
+        </div>
+    </div>
+</t>

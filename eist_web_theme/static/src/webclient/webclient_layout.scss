@@ -23,27 +23,23 @@
 			.o_navbar {
 				margin-left: 0 !important;
 			}
-		}
 
-		// ----------------------------
-		// 小屏幕下,则隐藏侧边栏菜单
-		// ----------------------------
-		@include media-breakpoint-down(sm) {
-			.o_sidebar_menu {
+			.o_action_manager {
+				background-color: transparent !important;
+			}
+
+			.o_erp_footer {
 				display: none !important;
 			}
-
-			.o_action_manager,
-			.o_navbar {
-				margin-left: 0 !important;
-			}
 		}
 
 		// ----------------------------
 		// 小屏幕下,则隐藏侧边栏菜单
 		// ----------------------------
 		@include media-breakpoint-down(sm) {
-			.o_sidebar_menu {
+
+			.o_sidebar_menu,
+			.o_erp_footer {
 				display: none !important;
 			}
 
@@ -68,7 +64,8 @@
 					&[data-sidebar-is-minimized="true"] {
 
 						>.o_action_manager,
-						.o_navbar {
+						.o_navbar,
+						.o_erp_footer {
 							margin-left: $o-sidebar-menu-collapse-width;
 						}
 					}
@@ -76,23 +73,27 @@
 					&[data-sidebar-is-minimized="false"] {
 
 						>.o_action_manager,
-						.o_navbar {
+						.o_navbar,
+						.o_erp_footer {
 							margin-left: $o-sidebar-menu-width;
 						}
 					}
+
 				}
 
 				&[data-sidebar-default-minimize="false"] {
 
 					>.o_action_manager,
-					.o_navbar {
+					.o_navbar,
+					.o_erp_footer {
 						margin-left: $o-sidebar-menu-width;
 					}
 
 					&[data-sidebar-is-minimized="true"] {
 
 						>.o_action_manager,
-						.o_navbar {
+						.o_navbar,
+						.o_erp_footer {
 							margin-left: $o-sidebar-menu-collapse-width;
 						}
 					}
