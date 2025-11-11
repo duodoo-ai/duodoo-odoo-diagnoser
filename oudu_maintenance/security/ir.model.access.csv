@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_equipment_monitoring_data,Monitoring Data,model_equipment_monitoring_data,base.group_user,1,1,1,1
-access_equipment_alert_rule,Alert Rules,model_equipment_alert_rule,base.group_user,1,1,1,1
-access_equipment_inspection,Inspections,model_equipment_inspection,base.group_user,1,1,1,1
